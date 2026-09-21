@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para una amiga muy especial 🌼</title>
+<style>
+  :root{
+    --crema: #FFF9EC;
+    --amarillo-suave: #FFE28A;
+    --amarillo: #FFC93C;
+    --amarillo-oscuro: #E8A93A;
+    --verde-tallo: #7BA05B;
+    --verde-oscuro: #55793C;
+    --centro: #B8621B;
+    --texto: #5B4A2A;
+    --tarjeta: #FFFDF7;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background: radial-gradient(ellipse at 50% 0%, var(--amarillo-suave) 0%, var(--crema) 55%);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding: 48px 20px 0 20px;
+    overflow-x:hidden;
+  }
+
+  .fecha{
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--verde-oscuro);
+    font-weight:600;
+    margin-bottom: 4px;
+  }
+
+  h1{
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(30px, 6vw, 46px);
+    color: var(--texto);
+    margin: 0 0 6px 0;
+    text-align:center;
+  }
+
+  .subt{
+    color: var(--verde-oscuro);
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align:center;
+  }
+
+  /* ---------- Jardín SVG ---------- */
+  .jardin-wrap{
+    width: 100%;
+    max-width: 780px;
+  }
+
+  .jardin{
+    width: 100%;
+    height: auto;
+    display:block;
+    overflow: visible;
+  }
+
+  .tallo{
+    fill:none;
+    stroke: var(--verde-tallo);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: var(--len);
+    stroke-dashoffset: var(--len);
+    animation: crecer 1.3s ease-out forwards;
+  }
+  @keyframes crecer{
+    to{ stroke-dashoffset: 0; }
+  }
+
+  .hoja{
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    animation: abrir-hoja .5s ease-out forwards;
+  }
+  @keyframes abrir-hoja{
+    to{ opacity: 1; transform: scale(1); }
+  }
+
+  .cabeza{
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    animation: florecer .8s cubic-bezier(.34,1.56,.64,1) forwards;
+  }
+  @keyframes florecer{
+    to{ opacity: 1; transform: scale(1); }
+  }
+
+  .flor-grupo{
+    transform-box: view-box;
+    --sway: 1deg;
+    animation-name: balanceo;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  @keyframes balanceo{
+    from{ transform: rotate(calc(-1 * var(--sway))); }
+    to{ transform: rotate(var(--sway)); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .tallo, .hoja, .cabeza, .flor-grupo{ animation: none !important; }
+    .tallo{ stroke-dashoffset: 0 !important; }
+    .hoja, .cabeza{ opacity: 1 !important; transform: scale(1) !important; }
+  }
+
+  .suelo{
+    fill: url(#pasto-grad);
+    opacity: 0.85;
+  }
+
+  /* ---------- Tarjeta del mensaje ---------- */
+  .tarjeta{
+    background: var(--tarjeta);
+    border-radius: 22px;
+    padding: 34px 30px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 18px 0 48px 0;
+    box-shadow: 0 18px 40px -20px rgba(184, 98, 27, 0.35);
+    border: 1px solid rgba(232, 169, 58, 0.25);
+    position:relative;
+  }
+
+  .tarjeta::before{
+    content: "🌼";
+    position:absolute;
+    top:-18px;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    background: var(--crema);
+    border-radius: 50%;
+    padding: 4px 8px;
+  }
+
+  #mensaje{
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 20px;
+    line-height: 1.75;
+    color: var(--texto);
+    text-align: center;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+
+  .firma{
+    text-align:center;
+    margin-top: 18px;
+    color: var(--amarillo-oscuro);
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+.marco-tarjeta{
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  margin: 18px 0 48px 0;
+  padding: 26px;
+  border-radius: 26px;
+  background: repeating-linear-gradient(
+    var(--tarjeta) 0 100%
+  );
+}
+
+.marco-tarjeta::before{
+  content: "🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 10px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.marco-tarjeta::after{
+  content: "🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻 💛 🌷 💛 🌻";
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 10px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.marco-lado{
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  width: 24px;
+  font-size: 18px;
+  line-height: 1.9;
+  writing-mode: vertical-rl;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marco-lado.izq{ 
+  left: -12px; 
+  letter-spacing: 4px;
+}
+.marco-lado.der{ 
+  right: -12px; 
+  transform: scaleX(-1); 
+  letter-spacing: 4px;
+}
+
+  /* ---------- Lluvia de flores ---------- */
+  .lluvia-girasoles{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .girasol-caida svg{ width: 1em; height: 1em; display: block; }
+
+  .girasol-caida{
+    position: absolute;
+    top: -60px;
+    font-size: var(--tam, 24px);
+    opacity: var(--op, 0.85);
+    animation-name: caer, balancear;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-duration: var(--dur, 9s), var(--dur-sway, 3s);
+    animation-delay: var(--retraso, 0s), var(--retraso, 0s);
+    animation-direction: normal, alternate;
+    will-change: transform;
+  }
+
+  @keyframes caer{
+    from{ transform: translateY(-10vh) rotate(0deg); }
+    to{ transform: translateY(110vh) rotate(360deg); }
+  }
+
+  @keyframes balancear{
+    from{ margin-left: -18px; }
+    to{ margin-left: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .lluvia-girasoles{ display: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="fecha">21 de septiembre</div>
+  <h1>Para ti, amiga</h1>
+  <div class="subt">un jardín que crece solo para ti</div>
+
+  <div class="jardin-wrap">
+    <svg class="jardin" viewBox="-20 0 1040 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="petalo-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFD65C"/>
+          <stop offset="100%" stop-color="#E8A93A"/>
+        </linearGradient>
+        <radialGradient id="centro-grad" cx="35%" cy="35%" r="70%">
+          <stop offset="0%" stop-color="#E7A94D"/>
+          <stop offset="100%" stop-color="#B8621B"/>
+        </radialGradient>
+        <linearGradient id="petalo-grad2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFE08A"/>
+          <stop offset="100%" stop-color="#F0B23E"/>
+        </linearGradient>
+        <linearGradient id="petalo-grad3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFCE4A"/>
+          <stop offset="100%" stop-color="#D99424"/>
+        </linearGradient>
+
+
+        <!-- tulipanes -->
+        <linearGradient id="tul-rosa" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFF27A"/><stop offset="100%" stop-color="#F2C21B"/></linearGradient>
+        <linearGradient id="tul-rosa-c" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFF9B0"/><stop offset="100%" stop-color="#FADB45"/></linearGradient>
+        <linearGradient id="tul-coral" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFE066"/><stop offset="100%" stop-color="#F0A81C"/></linearGradient>
+        <linearGradient id="tul-coral-c" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFEB94"/><stop offset="100%" stop-color="#F7C531"/></linearGradient>
+        <linearGradient id="tul-lila" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFF0A0"/><stop offset="100%" stop-color="#EDBE3A"/></linearGradient>
+        <linearGradient id="tul-lila-c" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFF8CC"/><stop offset="100%" stop-color="#F8D86A"/></linearGradient>
+        <!-- rosas amarillas -->
+        <radialGradient id="rosa-base" cx="50%" cy="45%" r="60%"><stop offset="0%" stop-color="#FFE472"/><stop offset="100%" stop-color="#EDAE1C"/></radialGradient>
+        <radialGradient id="rosa-petalo" cx="50%" cy="40%" r="65%"><stop offset="0%" stop-color="#FFF0A0"/><stop offset="100%" stop-color="#F6C934"/></radialGradient>
+
+        <linearGradient id="pasto-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8FB86B"/>
+          <stop offset="100%" stop-color="#547A3A"/>
+        </linearGradient>
+
+      </defs>
+
+      <!-- suelo -->
+      <path class="suelo" d="M-20,268
+        C 40,258 100,272 160,262
+        C 240,250 320,268 400,258
+        C 480,248 560,266 640,256
+        C 720,246 800,264 880,254
+        C 930,248 970,258 1020,254
+        L 1020,300 L -20,300 Z"/>
+
+      <!-- ============ FLOR 1 ============ -->
+      <g class="flor-grupo" style="transform-origin:13px 261.2677376066971px; opacity:0.64; animation-delay:2.68s; animation-duration:3.31s; --sway:0.66deg;">
+        <path class="tallo" d="M13,261.2677376066971 L13,210.03003146388215" style="--len:51.23770614281494; stroke-width:3.2; animation-delay:0.42s; animation-duration:0.87s"/>
+        <g transform="rotate(-30 3,231.03003146388215)"><ellipse class="hoja" cx="3" cy="231.03003146388215" rx="9.4" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.9s"/></g>
+        <g transform="rotate(28 23,251.03003146388215)"><ellipse class="hoja" cx="23" cy="251.03003146388215" rx="9.4" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.96s"/></g>
+        <g class="cabeza" style="animation-delay:1.07s">
+          <ellipse cx="13" cy="198.6" rx="6.2" ry="11.4" fill="url(#petalo-grad3)" transform="rotate(0 13 210.03003146388215)"/>
+          <ellipse cx="13" cy="198.6" rx="6.2" ry="11.4" fill="url(#petalo-grad3)" transform="rotate(60 13 210.03003146388215)"/>
+          <ellipse cx="13" cy="198.6" rx="6.2" ry="11.4" fill="url(#petalo-grad3)" transform="rotate(120 13 210.03003146388215)"/>
+          <ellipse cx="13" cy="198.6" rx="6.2" ry="11.4" fill="url(#petalo-grad3)" transform="rotate(180 13 210.03003146388215)"/>
+          <ellipse cx="13" cy="198.6" rx="6.2" ry="11.4" fill="url(#petalo-grad3)" transform="rotate(240 13 210.03003146388215)"/>
+          <ellipse cx="13" cy="198.6" rx="6.2" ry="11.4" fill="url(#petalo-grad3)" transform="rotate(300 13 210.03003146388215)"/>
+          <circle cx="13" cy="210.03003146388215" r="5.7" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:56px 267.0435931217895px; opacity:0.63; animation-delay:3.22s; animation-duration:4.06s; --sway:0.67deg;">
+        <path class="tallo" d="M56,267.0435931217895 L56,209.12553575655306" style="--len:57.91805736523645; stroke-width:3.2; animation-delay:0.28s; animation-duration:0.87s"/>
+        <g transform="rotate(-30 46,230.12553575655306)"><ellipse class="hoja" cx="46" cy="230.12553575655306" rx="9.5" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.76s"/></g>
+        <g transform="rotate(28 66,251.12553575655306)"><ellipse class="hoja" cx="66" cy="251.12553575655306" rx="9.5" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.82s"/></g>
+        <g class="cabeza" style="animation-delay:0.93s">
+          <g transform="translate(56.0 209.12553575655306) scale(0.905)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-rosa-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:109px 259.6055972688589px; opacity:0.56; animation-delay:2.8s; animation-duration:5.6s; --sway:0.71deg;">
+        <path class="tallo" d="M109,259.6055972688589 L109,214.48919911286183" style="--len:45.116398155997075; stroke-width:3.3; animation-delay:0.38s; animation-duration:0.88s"/>
+        <g transform="rotate(-30 98,236.48919911286183)"><ellipse class="hoja" cx="98" cy="236.48919911286183" rx="9.7" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.86s"/></g>
+        <g transform="rotate(28 120,256.4891991128618)"><ellipse class="hoja" cx="120" cy="256.4891991128618" rx="9.7" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.93s"/></g>
+        <g class="cabeza" style="animation-delay:1.04s">
+          <ellipse cx="109" cy="202.8" rx="6.4" ry="11.7" fill="url(#petalo-grad2)" transform="rotate(0 109 214.48919911286183)"/>
+          <ellipse cx="109" cy="202.8" rx="6.4" ry="11.7" fill="url(#petalo-grad2)" transform="rotate(60 109 214.48919911286183)"/>
+          <ellipse cx="109" cy="202.8" rx="6.4" ry="11.7" fill="url(#petalo-grad2)" transform="rotate(120 109 214.48919911286183)"/>
+          <ellipse cx="109" cy="202.8" rx="6.4" ry="11.7" fill="url(#petalo-grad2)" transform="rotate(180 109 214.48919911286183)"/>
+          <ellipse cx="109" cy="202.8" rx="6.4" ry="11.7" fill="url(#petalo-grad2)" transform="rotate(240 109 214.48919911286183)"/>
+          <ellipse cx="109" cy="202.8" rx="6.4" ry="11.7" fill="url(#petalo-grad2)" transform="rotate(300 109 214.48919911286183)"/>
+          <circle cx="109" cy="214.48919911286183" r="5.8" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:130px 260.57982186419133px; opacity:0.59; animation-delay:2.82s; animation-duration:3.48s; --sway:0.84deg;">
+        <path class="tallo" d="M130,260.57982186419133 L130,225.56074906724638" style="--len:35.019072796944954; stroke-width:3.7; animation-delay:0.46s; animation-duration:0.93s"/>
+        <g transform="rotate(-30 119,249.56074906724638)"><ellipse class="hoja" cx="119" cy="249.56074906724638" rx="10.5" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.97s"/></g>
+        <g transform="rotate(28 141,271.5607490672464)"><ellipse class="hoja" cx="141" cy="271.5607490672464" rx="10.5" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:1.04s"/></g>
+        <g class="cabeza" style="animation-delay:1.16s">
+          <ellipse cx="130" cy="213.1" rx="6.9" ry="12.5" fill="url(#petalo-grad3)" transform="rotate(0 130 225.56074906724638)"/>
+          <ellipse cx="130" cy="213.1" rx="6.9" ry="12.5" fill="url(#petalo-grad3)" transform="rotate(60 130 225.56074906724638)"/>
+          <ellipse cx="130" cy="213.1" rx="6.9" ry="12.5" fill="url(#petalo-grad3)" transform="rotate(120 130 225.56074906724638)"/>
+          <ellipse cx="130" cy="213.1" rx="6.9" ry="12.5" fill="url(#petalo-grad3)" transform="rotate(180 130 225.56074906724638)"/>
+          <ellipse cx="130" cy="213.1" rx="6.9" ry="12.5" fill="url(#petalo-grad3)" transform="rotate(240 130 225.56074906724638)"/>
+          <ellipse cx="130" cy="213.1" rx="6.9" ry="12.5" fill="url(#petalo-grad3)" transform="rotate(300 130 225.56074906724638)"/>
+          <circle cx="130" cy="225.56074906724638" r="6.3" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:170px 258.65619875648684px; opacity:0.6; animation-delay:3.29s; animation-duration:3.58s; --sway:0.79deg;">
+        <path class="tallo" d="M170,258.65619875648684 L170,196.40831870280408" style="--len:62.24788005368276; stroke-width:3.5; animation-delay:0.04s; animation-duration:0.91s"/>
+        <g transform="rotate(-30 159,219.40831870280408)"><ellipse class="hoja" cx="159" cy="219.40831870280408" rx="10.2" ry="5.0" fill="var(--verde-tallo)" style="animation-delay:0.54s"/></g>
+        <g transform="rotate(28 181,241.40831870280408)"><ellipse class="hoja" cx="181" cy="241.40831870280408" rx="10.2" ry="5.0" fill="var(--verde-tallo)" style="animation-delay:0.6s"/></g>
+        <g class="cabeza" style="animation-delay:0.72s">
+          <g transform="translate(170.0 196.40831870280408) scale(1.028)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:212px 256.48749379477715px; opacity:0.56; animation-delay:2.54s; animation-duration:4.52s; --sway:0.71deg;">
+        <path class="tallo" d="M212,256.48749379477715 L212,217.9508729812925" style="--len:38.53662081348466; stroke-width:3.3; animation-delay:0.4s; animation-duration:0.88s"/>
+        <g transform="rotate(-30 201,239.9508729812925)"><ellipse class="hoja" cx="201" cy="239.9508729812925" rx="9.7" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.88s"/></g>
+        <g transform="rotate(28 223,260.9508729812925)"><ellipse class="hoja" cx="223" cy="260.9508729812925" rx="9.7" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.95s"/></g>
+        <g class="cabeza" style="animation-delay:1.06s">
+          <ellipse cx="212" cy="206.3" rx="6.4" ry="11.7" fill="url(#petalo-grad3)" transform="rotate(0 212 217.9508729812925)"/>
+          <ellipse cx="212" cy="206.3" rx="6.4" ry="11.7" fill="url(#petalo-grad3)" transform="rotate(60 212 217.9508729812925)"/>
+          <ellipse cx="212" cy="206.3" rx="6.4" ry="11.7" fill="url(#petalo-grad3)" transform="rotate(120 212 217.9508729812925)"/>
+          <ellipse cx="212" cy="206.3" rx="6.4" ry="11.7" fill="url(#petalo-grad3)" transform="rotate(180 212 217.9508729812925)"/>
+          <ellipse cx="212" cy="206.3" rx="6.4" ry="11.7" fill="url(#petalo-grad3)" transform="rotate(240 212 217.9508729812925)"/>
+          <ellipse cx="212" cy="206.3" rx="6.4" ry="11.7" fill="url(#petalo-grad3)" transform="rotate(300 212 217.9508729812925)"/>
+          <circle cx="212" cy="217.9508729812925" r="5.8" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:235px 259.5279472015096px; opacity:0.63; animation-delay:2.3s; animation-duration:5.37s; --sway:0.87deg;">
+        <path class="tallo" d="M235,259.5279472015096 L235,197.59467729409585" style="--len:61.933269907413774; stroke-width:3.7; animation-delay:0.19s; animation-duration:0.94s"/>
+        <g transform="rotate(-30 224,221.59467729409585)"><ellipse class="hoja" cx="224" cy="221.59467729409585" rx="10.7" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.71s"/></g>
+        <g transform="rotate(28 246,243.59467729409585)"><ellipse class="hoja" cx="246" cy="243.59467729409585" rx="10.7" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.77s"/></g>
+        <g class="cabeza" style="animation-delay:0.9s">
+          <ellipse cx="235" cy="184.9" rx="7.0" ry="12.7" fill="url(#petalo-grad)" transform="rotate(0 235 197.59467729409585)"/>
+          <ellipse cx="235" cy="184.9" rx="7.0" ry="12.7" fill="url(#petalo-grad)" transform="rotate(60 235 197.59467729409585)"/>
+          <ellipse cx="235" cy="184.9" rx="7.0" ry="12.7" fill="url(#petalo-grad)" transform="rotate(120 235 197.59467729409585)"/>
+          <ellipse cx="235" cy="184.9" rx="7.0" ry="12.7" fill="url(#petalo-grad)" transform="rotate(180 235 197.59467729409585)"/>
+          <ellipse cx="235" cy="184.9" rx="7.0" ry="12.7" fill="url(#petalo-grad)" transform="rotate(240 235 197.59467729409585)"/>
+          <ellipse cx="235" cy="184.9" rx="7.0" ry="12.7" fill="url(#petalo-grad)" transform="rotate(300 235 197.59467729409585)"/>
+          <circle cx="235" cy="197.59467729409585" r="6.4" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:287px 256.62230305015925px; opacity:0.75; animation-delay:3.13s; animation-duration:3.54s; --sway:0.87deg;">
+        <path class="tallo" d="M287,256.62230305015925 L287,200.87638109084043" style="--len:55.74592195931882; stroke-width:3.7; animation-delay:0.01s; animation-duration:0.94s"/>
+        <g transform="rotate(-30 276,224.87638109084043)"><ellipse class="hoja" cx="276" cy="224.87638109084043" rx="10.7" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.53s"/></g>
+        <g transform="rotate(28 298,246.87638109084043)"><ellipse class="hoja" cx="298" cy="246.87638109084043" rx="10.7" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.59s"/></g>
+        <g class="cabeza" style="animation-delay:0.71s">
+          <g transform="translate(287.0 200.87638109084043) scale(0.999)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-coral-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:330px 258.60537595766823px; opacity:0.6; animation-delay:2.8s; animation-duration:3.48s; --sway:0.87deg;">
+        <path class="tallo" d="M330,258.60537595766823 L330,216.14185805745495" style="--len:42.463517900213276; stroke-width:3.7; animation-delay:0.39s; animation-duration:0.94s"/>
+        <g transform="rotate(-30 319,240.14185805745495)"><ellipse class="hoja" cx="319" cy="240.14185805745495" rx="10.7" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.91s"/></g>
+        <g transform="rotate(28 341,262.14185805745495)"><ellipse class="hoja" cx="341" cy="262.14185805745495" rx="10.7" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.97s"/></g>
+        <g class="cabeza" style="animation-delay:1.09s">
+          <ellipse cx="330" cy="203.4" rx="7.0" ry="12.7" fill="url(#petalo-grad2)" transform="rotate(0 330 216.14185805745495)"/>
+          <ellipse cx="330" cy="203.4" rx="7.0" ry="12.7" fill="url(#petalo-grad2)" transform="rotate(60 330 216.14185805745495)"/>
+          <ellipse cx="330" cy="203.4" rx="7.0" ry="12.7" fill="url(#petalo-grad2)" transform="rotate(120 330 216.14185805745495)"/>
+          <ellipse cx="330" cy="203.4" rx="7.0" ry="12.7" fill="url(#petalo-grad2)" transform="rotate(180 330 216.14185805745495)"/>
+          <ellipse cx="330" cy="203.4" rx="7.0" ry="12.7" fill="url(#petalo-grad2)" transform="rotate(240 330 216.14185805745495)"/>
+          <ellipse cx="330" cy="203.4" rx="7.0" ry="12.7" fill="url(#petalo-grad2)" transform="rotate(300 330 216.14185805745495)"/>
+          <circle cx="330" cy="216.14185805745495" r="6.4" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:375px 262.7100892539688px; opacity:0.55; animation-delay:3.55s; animation-duration:4.46s; --sway:0.7deg;">
+        <path class="tallo" d="M375,262.7100892539688 L375,205.42953006058528" style="--len:57.28055919338354; stroke-width:3.3; animation-delay:0.18s; animation-duration:0.88s"/>
+        <g transform="rotate(-30 364,226.42953006058528)"><ellipse class="hoja" cx="364" cy="226.42953006058528" rx="9.6" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.66s"/></g>
+        <g transform="rotate(28 386,247.42953006058528)"><ellipse class="hoja" cx="386" cy="247.42953006058528" rx="9.6" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.73s"/></g>
+        <g class="cabeza" style="animation-delay:0.84s">
+          <ellipse cx="375" cy="193.8" rx="6.4" ry="11.6" fill="url(#petalo-grad)" transform="rotate(0 375 205.42953006058528)"/>
+          <ellipse cx="375" cy="193.8" rx="6.4" ry="11.6" fill="url(#petalo-grad)" transform="rotate(60 375 205.42953006058528)"/>
+          <ellipse cx="375" cy="193.8" rx="6.4" ry="11.6" fill="url(#petalo-grad)" transform="rotate(120 375 205.42953006058528)"/>
+          <ellipse cx="375" cy="193.8" rx="6.4" ry="11.6" fill="url(#petalo-grad)" transform="rotate(180 375 205.42953006058528)"/>
+          <ellipse cx="375" cy="193.8" rx="6.4" ry="11.6" fill="url(#petalo-grad)" transform="rotate(240 375 205.42953006058528)"/>
+          <ellipse cx="375" cy="193.8" rx="6.4" ry="11.6" fill="url(#petalo-grad)" transform="rotate(300 375 205.42953006058528)"/>
+          <circle cx="375" cy="205.42953006058528" r="5.8" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:387px 266.71793223319474px; opacity:0.59; animation-delay:2.62s; animation-duration:3.76s; --sway:0.78deg;">
+        <path class="tallo" d="M387,266.71793223319474 L387,201.38953386011696" style="--len:65.32839837307779; stroke-width:3.5; animation-delay:0.08s; animation-duration:0.91s"/>
+        <g transform="rotate(-30 376,224.38953386011696)"><ellipse class="hoja" cx="376" cy="224.38953386011696" rx="10.2" ry="5.0" fill="var(--verde-tallo)" style="animation-delay:0.58s"/></g>
+        <g transform="rotate(28 398,245.38953386011696)"><ellipse class="hoja" cx="398" cy="245.38953386011696" rx="10.2" ry="5.0" fill="var(--verde-tallo)" style="animation-delay:0.64s"/></g>
+        <g class="cabeza" style="animation-delay:0.76s">
+          <g transform="translate(387.0 201.38953386011696) scale(1.028)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:434px 266.35065655972977px; opacity:0.59; animation-delay:2.4s; animation-duration:3.41s; --sway:0.82deg;">
+        <path class="tallo" d="M434,266.35065655972977 L434,198.43648519640888" style="--len:67.91417136332089; stroke-width:3.6; animation-delay:0.48s; animation-duration:0.92s"/>
+        <g transform="rotate(-30 423,221.43648519640888)"><ellipse class="hoja" cx="423" cy="221.43648519640888" rx="10.4" ry="5.1" fill="var(--verde-tallo)" style="animation-delay:0.99s"/></g>
+        <g transform="rotate(28 445,243.43648519640888)"><ellipse class="hoja" cx="445" cy="243.43648519640888" rx="10.4" ry="5.1" fill="var(--verde-tallo)" style="animation-delay:1.05s"/></g>
+        <g class="cabeza" style="animation-delay:1.17s">
+          <ellipse cx="434" cy="186.0" rx="6.8" ry="12.4" fill="url(#petalo-grad3)" transform="rotate(0 434 198.43648519640888)"/>
+          <ellipse cx="434" cy="186.0" rx="6.8" ry="12.4" fill="url(#petalo-grad3)" transform="rotate(60 434 198.43648519640888)"/>
+          <ellipse cx="434" cy="186.0" rx="6.8" ry="12.4" fill="url(#petalo-grad3)" transform="rotate(120 434 198.43648519640888)"/>
+          <ellipse cx="434" cy="186.0" rx="6.8" ry="12.4" fill="url(#petalo-grad3)" transform="rotate(180 434 198.43648519640888)"/>
+          <ellipse cx="434" cy="186.0" rx="6.8" ry="12.4" fill="url(#petalo-grad3)" transform="rotate(240 434 198.43648519640888)"/>
+          <ellipse cx="434" cy="186.0" rx="6.8" ry="12.4" fill="url(#petalo-grad3)" transform="rotate(300 434 198.43648519640888)"/>
+          <circle cx="434" cy="198.43648519640888" r="6.2" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:465px 259.48255353866324px; opacity:0.6; animation-delay:3.37s; animation-duration:4.73s; --sway:0.68deg;">
+        <path class="tallo" d="M465,259.48255353866324 L465,206.55009961056626" style="--len:52.932453928096976; stroke-width:3.2; animation-delay:0.37s; animation-duration:0.88s"/>
+        <g transform="rotate(-30 455,227.55009961056626)"><ellipse class="hoja" cx="455" cy="227.55009961056626" rx="9.5" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.85s"/></g>
+        <g transform="rotate(28 475,248.55009961056626)"><ellipse class="hoja" cx="475" cy="248.55009961056626" rx="9.5" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.92s"/></g>
+        <g class="cabeza" style="animation-delay:1.03s">
+          <ellipse cx="465" cy="195.1" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(0 465 206.55009961056626)"/>
+          <ellipse cx="465" cy="195.1" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(60 465 206.55009961056626)"/>
+          <ellipse cx="465" cy="195.1" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(120 465 206.55009961056626)"/>
+          <ellipse cx="465" cy="195.1" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(180 465 206.55009961056626)"/>
+          <ellipse cx="465" cy="195.1" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(240 465 206.55009961056626)"/>
+          <ellipse cx="465" cy="195.1" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(300 465 206.55009961056626)"/>
+          <circle cx="465" cy="206.55009961056626" r="5.8" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:531px 257.19754872255174px; opacity:0.69; animation-delay:3.15s; animation-duration:4.78s; --sway:0.72deg;">
+        <path class="tallo" d="M531,257.19754872255174 L531,216.05737983574667" style="--len:41.14016888680507; stroke-width:3.3; animation-delay:0.03s; animation-duration:0.89s"/>
+        <g transform="rotate(-30 520,238.05737983574667)"><ellipse class="hoja" cx="520" cy="238.05737983574667" rx="9.8" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.52s"/></g>
+        <g transform="rotate(28 542,259.0573798357467)"><ellipse class="hoja" cx="542" cy="259.0573798357467" rx="9.8" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.58s"/></g>
+        <g class="cabeza" style="animation-delay:0.7s">
+          <g transform="translate(531.0 216.05737983574667) scale(0.929)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-lila-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:566px 254.96816053814229px; opacity:0.73; animation-delay:2.88s; animation-duration:3.45s; --sway:0.67deg;">
+        <path class="tallo" d="M566,254.96816053814229 L566,212.53415180490248" style="--len:42.43400873323981; stroke-width:3.2; animation-delay:0.37s; animation-duration:0.87s"/>
+        <g transform="rotate(-30 556,233.53415180490248)"><ellipse class="hoja" cx="556" cy="233.53415180490248" rx="9.5" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.85s"/></g>
+        <g transform="rotate(28 576,254.53415180490248)"><ellipse class="hoja" cx="576" cy="254.53415180490248" rx="9.5" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.91s"/></g>
+        <g class="cabeza" style="animation-delay:1.02s">
+          <ellipse cx="566" cy="201.0" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(0 566 212.53415180490248)"/>
+          <ellipse cx="566" cy="201.0" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(60 566 212.53415180490248)"/>
+          <ellipse cx="566" cy="201.0" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(120 566 212.53415180490248)"/>
+          <ellipse cx="566" cy="201.0" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(180 566 212.53415180490248)"/>
+          <ellipse cx="566" cy="201.0" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(240 566 212.53415180490248)"/>
+          <ellipse cx="566" cy="201.0" rx="6.3" ry="11.5" fill="url(#petalo-grad2)" transform="rotate(300 566 212.53415180490248)"/>
+          <circle cx="566" cy="212.53415180490248" r="5.7" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:579px 259.0700321937927px; opacity:0.66; animation-delay:3.57s; animation-duration:4.88s; --sway:0.69deg;">
+        <path class="tallo" d="M579,259.0700321937927 L579,211.1625442307635" style="--len:47.90748796302921; stroke-width:3.3; animation-delay:0.07s; animation-duration:0.88s"/>
+        <g transform="rotate(-30 568,232.1625442307635)"><ellipse class="hoja" cx="568" cy="232.1625442307635" rx="9.6" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.55s"/></g>
+        <g transform="rotate(28 590,253.1625442307635)"><ellipse class="hoja" cx="590" cy="253.1625442307635" rx="9.6" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.62s"/></g>
+        <g class="cabeza" style="animation-delay:0.73s">
+          <ellipse cx="579" cy="199.6" rx="6.3" ry="11.6" fill="url(#petalo-grad2)" transform="rotate(0 579 211.1625442307635)"/>
+          <ellipse cx="579" cy="199.6" rx="6.3" ry="11.6" fill="url(#petalo-grad2)" transform="rotate(60 579 211.1625442307635)"/>
+          <ellipse cx="579" cy="199.6" rx="6.3" ry="11.6" fill="url(#petalo-grad2)" transform="rotate(120 579 211.1625442307635)"/>
+          <ellipse cx="579" cy="199.6" rx="6.3" ry="11.6" fill="url(#petalo-grad2)" transform="rotate(180 579 211.1625442307635)"/>
+          <ellipse cx="579" cy="199.6" rx="6.3" ry="11.6" fill="url(#petalo-grad2)" transform="rotate(240 579 211.1625442307635)"/>
+          <ellipse cx="579" cy="199.6" rx="6.3" ry="11.6" fill="url(#petalo-grad2)" transform="rotate(300 579 211.1625442307635)"/>
+          <circle cx="579" cy="211.1625442307635" r="5.8" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:655px 254.2505187589459px; opacity:0.58; animation-delay:3.21s; animation-duration:5.61s; --sway:0.81deg;">
+        <path class="tallo" d="M655,254.2505187589459 L655,198.79510937263964" style="--len:55.45540938630626; stroke-width:3.6; animation-delay:0.02s; animation-duration:0.92s"/>
+        <g transform="rotate(-30 644,221.79510937263964)"><ellipse class="hoja" cx="644" cy="221.79510937263964" rx="10.3" ry="5.1" fill="var(--verde-tallo)" style="animation-delay:0.53s"/></g>
+        <g transform="rotate(28 666,243.79510937263964)"><ellipse class="hoja" cx="666" cy="243.79510937263964" rx="10.3" ry="5.1" fill="var(--verde-tallo)" style="animation-delay:0.59s"/></g>
+        <g class="cabeza" style="animation-delay:0.71s">
+          <g transform="translate(655.0 198.79510937263964) scale(1.037)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:693px 258.4646628641522px; opacity:0.65; animation-delay:2.4s; animation-duration:4.61s; --sway:0.66deg;">
+        <path class="tallo" d="M693,258.4646628641522 L693,201.19820460895676" style="--len:57.26645825519546; stroke-width:3.2; animation-delay:0.37s; animation-duration:0.87s"/>
+        <g transform="rotate(-30 683,222.19820460895676)"><ellipse class="hoja" cx="683" cy="222.19820460895676" rx="9.4" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.85s"/></g>
+        <g transform="rotate(28 703,242.19820460895676)"><ellipse class="hoja" cx="703" cy="242.19820460895676" rx="9.4" ry="4.7" fill="var(--verde-tallo)" style="animation-delay:0.91s"/></g>
+        <g class="cabeza" style="animation-delay:1.02s">
+          <ellipse cx="693" cy="189.8" rx="6.2" ry="11.4" fill="url(#petalo-grad)" transform="rotate(0 693 201.19820460895676)"/>
+          <ellipse cx="693" cy="189.8" rx="6.2" ry="11.4" fill="url(#petalo-grad)" transform="rotate(60 693 201.19820460895676)"/>
+          <ellipse cx="693" cy="189.8" rx="6.2" ry="11.4" fill="url(#petalo-grad)" transform="rotate(120 693 201.19820460895676)"/>
+          <ellipse cx="693" cy="189.8" rx="6.2" ry="11.4" fill="url(#petalo-grad)" transform="rotate(180 693 201.19820460895676)"/>
+          <ellipse cx="693" cy="189.8" rx="6.2" ry="11.4" fill="url(#petalo-grad)" transform="rotate(240 693 201.19820460895676)"/>
+          <ellipse cx="693" cy="189.8" rx="6.2" ry="11.4" fill="url(#petalo-grad)" transform="rotate(300 693 201.19820460895676)"/>
+          <circle cx="693" cy="201.19820460895676" r="5.7" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:720px 265.1057334653088px; opacity:0.7; animation-delay:2.76s; animation-duration:4.94s; --sway:0.82deg;">
+        <path class="tallo" d="M720,265.1057334653088 L720,198.59887762158053" style="--len:66.50685584372826; stroke-width:3.6; animation-delay:0.35s; animation-duration:0.92s"/>
+        <g transform="rotate(-30 709,221.59887762158053)"><ellipse class="hoja" cx="709" cy="221.59887762158053" rx="10.4" ry="5.1" fill="var(--verde-tallo)" style="animation-delay:0.86s"/></g>
+        <g transform="rotate(28 731,243.59887762158053)"><ellipse class="hoja" cx="731" cy="243.59887762158053" rx="10.4" ry="5.1" fill="var(--verde-tallo)" style="animation-delay:0.92s"/></g>
+        <g class="cabeza" style="animation-delay:1.04s">
+          <ellipse cx="720" cy="186.2" rx="6.8" ry="12.4" fill="url(#petalo-grad2)" transform="rotate(0 720 198.59887762158053)"/>
+          <ellipse cx="720" cy="186.2" rx="6.8" ry="12.4" fill="url(#petalo-grad2)" transform="rotate(60 720 198.59887762158053)"/>
+          <ellipse cx="720" cy="186.2" rx="6.8" ry="12.4" fill="url(#petalo-grad2)" transform="rotate(120 720 198.59887762158053)"/>
+          <ellipse cx="720" cy="186.2" rx="6.8" ry="12.4" fill="url(#petalo-grad2)" transform="rotate(180 720 198.59887762158053)"/>
+          <ellipse cx="720" cy="186.2" rx="6.8" ry="12.4" fill="url(#petalo-grad2)" transform="rotate(240 720 198.59887762158053)"/>
+          <ellipse cx="720" cy="186.2" rx="6.8" ry="12.4" fill="url(#petalo-grad2)" transform="rotate(300 720 198.59887762158053)"/>
+          <circle cx="720" cy="198.59887762158053" r="6.2" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:757px 266.0886174365801px; opacity:0.63; animation-delay:2.32s; animation-duration:4.89s; --sway:0.85deg;">
+        <path class="tallo" d="M757,266.0886174365801 L757,200.6000733673097" style="--len:65.48854406927038; stroke-width:3.7; animation-delay:0.4s; animation-duration:0.93s"/>
+        <g transform="rotate(-30 746,224.6000733673097)"><ellipse class="hoja" cx="746" cy="224.6000733673097" rx="10.6" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.91s"/></g>
+        <g transform="rotate(28 768,246.6000733673097)"><ellipse class="hoja" cx="768" cy="246.6000733673097" rx="10.6" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.98s"/></g>
+        <g class="cabeza" style="animation-delay:1.1s">
+          <g transform="translate(757.0 200.6000733673097) scale(0.991)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-rosa-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:778px 255.6181247972437px; opacity:0.56; animation-delay:3.44s; animation-duration:5.05s; --sway:0.74deg;">
+        <path class="tallo" d="M778,255.6181247972437 L778,220.1824736565066" style="--len:35.43565114073709; stroke-width:3.4; animation-delay:0.05s; animation-duration:0.89s"/>
+        <g transform="rotate(-30 767,242.1824736565066)"><ellipse class="hoja" cx="767" cy="242.1824736565066" rx="9.9" ry="4.9" fill="var(--verde-tallo)" style="animation-delay:0.54s"/></g>
+        <g transform="rotate(28 789,263.1824736565066)"><ellipse class="hoja" cx="789" cy="263.1824736565066" rx="9.9" ry="4.9" fill="var(--verde-tallo)" style="animation-delay:0.6s"/></g>
+        <g class="cabeza" style="animation-delay:0.72s">
+          <ellipse cx="778" cy="208.3" rx="6.5" ry="11.9" fill="url(#petalo-grad2)" transform="rotate(0 778 220.1824736565066)"/>
+          <ellipse cx="778" cy="208.3" rx="6.5" ry="11.9" fill="url(#petalo-grad2)" transform="rotate(60 778 220.1824736565066)"/>
+          <ellipse cx="778" cy="208.3" rx="6.5" ry="11.9" fill="url(#petalo-grad2)" transform="rotate(120 778 220.1824736565066)"/>
+          <ellipse cx="778" cy="208.3" rx="6.5" ry="11.9" fill="url(#petalo-grad2)" transform="rotate(180 778 220.1824736565066)"/>
+          <ellipse cx="778" cy="208.3" rx="6.5" ry="11.9" fill="url(#petalo-grad2)" transform="rotate(240 778 220.1824736565066)"/>
+          <ellipse cx="778" cy="208.3" rx="6.5" ry="11.9" fill="url(#petalo-grad2)" transform="rotate(300 778 220.1824736565066)"/>
+          <circle cx="778" cy="220.1824736565066" r="5.9" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:811px 265.73718040866794px; opacity:0.67; animation-delay:2.97s; animation-duration:4.53s; --sway:0.74deg;">
+        <path class="tallo" d="M811,265.73718040866794 L811,205.01084510447117" style="--len:60.726335304196766; stroke-width:3.4; animation-delay:0.22s; animation-duration:0.89s"/>
+        <g transform="rotate(-30 800,227.01084510447117)"><ellipse class="hoja" cx="800" cy="227.01084510447117" rx="9.9" ry="4.9" fill="var(--verde-tallo)" style="animation-delay:0.71s"/></g>
+        <g transform="rotate(28 822,248.01084510447117)"><ellipse class="hoja" cx="822" cy="248.01084510447117" rx="9.9" ry="4.9" fill="var(--verde-tallo)" style="animation-delay:0.77s"/></g>
+        <g class="cabeza" style="animation-delay:0.89s">
+          <ellipse cx="811" cy="193.1" rx="6.5" ry="11.9" fill="url(#petalo-grad)" transform="rotate(0 811 205.01084510447117)"/>
+          <ellipse cx="811" cy="193.1" rx="6.5" ry="11.9" fill="url(#petalo-grad)" transform="rotate(60 811 205.01084510447117)"/>
+          <ellipse cx="811" cy="193.1" rx="6.5" ry="11.9" fill="url(#petalo-grad)" transform="rotate(120 811 205.01084510447117)"/>
+          <ellipse cx="811" cy="193.1" rx="6.5" ry="11.9" fill="url(#petalo-grad)" transform="rotate(180 811 205.01084510447117)"/>
+          <ellipse cx="811" cy="193.1" rx="6.5" ry="11.9" fill="url(#petalo-grad)" transform="rotate(240 811 205.01084510447117)"/>
+          <ellipse cx="811" cy="193.1" rx="6.5" ry="11.9" fill="url(#petalo-grad)" transform="rotate(300 811 205.01084510447117)"/>
+          <circle cx="811" cy="205.01084510447117" r="5.9" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:870px 255.5803890895956px; opacity:0.55; animation-delay:3.16s; animation-duration:4.47s; --sway:0.72deg;">
+        <path class="tallo" d="M870,255.5803890895956 L870,217.50976054465787" style="--len:38.07062854493773; stroke-width:3.3; animation-delay:0.48s; animation-duration:0.89s"/>
+        <g transform="rotate(-30 859,239.50976054465787)"><ellipse class="hoja" cx="859" cy="239.50976054465787" rx="9.8" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:0.97s"/></g>
+        <g transform="rotate(28 881,260.50976054465787)"><ellipse class="hoja" cx="881" cy="260.50976054465787" rx="9.8" ry="4.8" fill="var(--verde-tallo)" style="animation-delay:1.03s"/></g>
+        <g class="cabeza" style="animation-delay:1.15s">
+          <g transform="translate(870.0 217.50976054465787) scale(0.995)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:891px 261.25752468686176px; opacity:0.58; animation-delay:3.16s; animation-duration:4.36s; --sway:0.85deg;">
+        <path class="tallo" d="M891,261.25752468686176 L891,213.37922741352287" style="--len:47.87829727333889; stroke-width:3.7; animation-delay:0.31s; animation-duration:0.93s"/>
+        <g transform="rotate(-30 880,237.37922741352287)"><ellipse class="hoja" cx="880" cy="237.37922741352287" rx="10.6" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.82s"/></g>
+        <g transform="rotate(28 902,259.37922741352287)"><ellipse class="hoja" cx="902" cy="259.37922741352287" rx="10.6" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.89s"/></g>
+        <g class="cabeza" style="animation-delay:1.01s">
+          <ellipse cx="891" cy="200.8" rx="6.9" ry="12.6" fill="url(#petalo-grad2)" transform="rotate(0 891 213.37922741352287)"/>
+          <ellipse cx="891" cy="200.8" rx="6.9" ry="12.6" fill="url(#petalo-grad2)" transform="rotate(60 891 213.37922741352287)"/>
+          <ellipse cx="891" cy="200.8" rx="6.9" ry="12.6" fill="url(#petalo-grad2)" transform="rotate(120 891 213.37922741352287)"/>
+          <ellipse cx="891" cy="200.8" rx="6.9" ry="12.6" fill="url(#petalo-grad2)" transform="rotate(180 891 213.37922741352287)"/>
+          <ellipse cx="891" cy="200.8" rx="6.9" ry="12.6" fill="url(#petalo-grad2)" transform="rotate(240 891 213.37922741352287)"/>
+          <ellipse cx="891" cy="200.8" rx="6.9" ry="12.6" fill="url(#petalo-grad2)" transform="rotate(300 891 213.37922741352287)"/>
+          <circle cx="891" cy="213.37922741352287" r="6.3" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:935px 260.03253395298117px; opacity:0.68; animation-delay:3.44s; animation-duration:4.22s; --sway:0.85deg;">
+        <path class="tallo" d="M935,260.03253395298117 L935,213.5889122939519" style="--len:46.443621659029276; stroke-width:3.7; animation-delay:0.1s; animation-duration:0.93s"/>
+        <g transform="rotate(-30 924,237.5889122939519)"><ellipse class="hoja" cx="924" cy="237.5889122939519" rx="10.6" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.61s"/></g>
+        <g transform="rotate(28 946,259.5889122939519)"><ellipse class="hoja" cx="946" cy="259.5889122939519" rx="10.6" ry="5.2" fill="var(--verde-tallo)" style="animation-delay:0.68s"/></g>
+        <g class="cabeza" style="animation-delay:0.8s">
+          <ellipse cx="935" cy="201.0" rx="6.9" ry="12.6" fill="url(#petalo-grad)" transform="rotate(0 935 213.5889122939519)"/>
+          <ellipse cx="935" cy="201.0" rx="6.9" ry="12.6" fill="url(#petalo-grad)" transform="rotate(60 935 213.5889122939519)"/>
+          <ellipse cx="935" cy="201.0" rx="6.9" ry="12.6" fill="url(#petalo-grad)" transform="rotate(120 935 213.5889122939519)"/>
+          <ellipse cx="935" cy="201.0" rx="6.9" ry="12.6" fill="url(#petalo-grad)" transform="rotate(180 935 213.5889122939519)"/>
+          <ellipse cx="935" cy="201.0" rx="6.9" ry="12.6" fill="url(#petalo-grad)" transform="rotate(240 935 213.5889122939519)"/>
+          <ellipse cx="935" cy="201.0" rx="6.9" ry="12.6" fill="url(#petalo-grad)" transform="rotate(300 935 213.5889122939519)"/>
+          <circle cx="935" cy="213.5889122939519" r="6.3" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:976px 265.71933864458754px; opacity:0.58; animation-delay:3.22s; animation-duration:5.58s; --sway:0.78deg;">
+        <path class="tallo" d="M976,265.71933864458754 L976,219.6422990872927" style="--len:46.077039557294825; stroke-width:3.5; animation-delay:0.25s; animation-duration:0.91s"/>
+        <g transform="rotate(-30 965,242.6422990872927)"><ellipse class="hoja" cx="965" cy="242.6422990872927" rx="10.2" ry="5.0" fill="var(--verde-tallo)" style="animation-delay:0.75s"/></g>
+        <g transform="rotate(28 987,263.6422990872927)"><ellipse class="hoja" cx="987" cy="263.6422990872927" rx="10.2" ry="5.0" fill="var(--verde-tallo)" style="animation-delay:0.81s"/></g>
+        <g class="cabeza" style="animation-delay:0.93s">
+          <g transform="translate(976.0 219.6422990872927) scale(0.959)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-coral-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:2px 268.80852427791257px; opacity:0.87; animation-delay:2.44s; animation-duration:4.58s; --sway:1.16deg;">
+        <path class="tallo" d="M2,268.80852427791257 L2,180.75102878924667" style="--len:88.0574954886659; stroke-width:4.5; animation-delay:0.03s; animation-duration:1.03s"/>
+        <g transform="rotate(-30 -11,208.75102878924667)"><ellipse class="hoja" cx="-11" cy="208.75102878924667" rx="12.6" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:0.6s"/></g>
+        <g transform="rotate(28 15,233.75102878924667)"><ellipse class="hoja" cx="15" cy="233.75102878924667" rx="12.6" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:0.67s"/></g>
+        <g class="cabeza" style="animation-delay:0.8s">
+          <ellipse cx="2" cy="166.2" rx="8.0" ry="14.6" fill="url(#petalo-grad2)" transform="rotate(0 2 180.75102878924667)"/>
+          <ellipse cx="2" cy="166.2" rx="8.0" ry="14.6" fill="url(#petalo-grad2)" transform="rotate(60 2 180.75102878924667)"/>
+          <ellipse cx="2" cy="166.2" rx="8.0" ry="14.6" fill="url(#petalo-grad2)" transform="rotate(120 2 180.75102878924667)"/>
+          <ellipse cx="2" cy="166.2" rx="8.0" ry="14.6" fill="url(#petalo-grad2)" transform="rotate(180 2 180.75102878924667)"/>
+          <ellipse cx="2" cy="166.2" rx="8.0" ry="14.6" fill="url(#petalo-grad2)" transform="rotate(240 2 180.75102878924667)"/>
+          <ellipse cx="2" cy="166.2" rx="8.0" ry="14.6" fill="url(#petalo-grad2)" transform="rotate(300 2 180.75102878924667)"/>
+          <circle cx="2" cy="180.75102878924667" r="7.3" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:40px 271.5337292749583px; opacity:0.86; animation-delay:2.53s; animation-duration:3.33s; --sway:1.11deg;">
+        <path class="tallo" d="M40,271.5337292749583 L40,176.25615880591167" style="--len:95.27757046904665; stroke-width:4.4; animation-delay:0.14s; animation-duration:1.01s"/>
+        <g transform="rotate(-30 27,203.25615880591167)"><ellipse class="hoja" cx="27" cy="203.25615880591167" rx="12.2" ry="5.9" fill="var(--verde-tallo)" style="animation-delay:0.7s"/></g>
+        <g transform="rotate(28 53,228.25615880591167)"><ellipse class="hoja" cx="53" cy="228.25615880591167" rx="12.2" ry="5.9" fill="var(--verde-tallo)" style="animation-delay:0.77s"/></g>
+        <g class="cabeza" style="animation-delay:0.9s">
+          <ellipse cx="40" cy="162.1" rx="7.8" ry="14.2" fill="url(#petalo-grad2)" transform="rotate(0 40 176.25615880591167)"/>
+          <ellipse cx="40" cy="162.1" rx="7.8" ry="14.2" fill="url(#petalo-grad2)" transform="rotate(60 40 176.25615880591167)"/>
+          <ellipse cx="40" cy="162.1" rx="7.8" ry="14.2" fill="url(#petalo-grad2)" transform="rotate(120 40 176.25615880591167)"/>
+          <ellipse cx="40" cy="162.1" rx="7.8" ry="14.2" fill="url(#petalo-grad2)" transform="rotate(180 40 176.25615880591167)"/>
+          <ellipse cx="40" cy="162.1" rx="7.8" ry="14.2" fill="url(#petalo-grad2)" transform="rotate(240 40 176.25615880591167)"/>
+          <ellipse cx="40" cy="162.1" rx="7.8" ry="14.2" fill="url(#petalo-grad2)" transform="rotate(300 40 176.25615880591167)"/>
+          <circle cx="40" cy="176.25615880591167" r="7.1" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:94px 264.8403534558091px; opacity:0.87; animation-delay:3.53s; animation-duration:4.5s; --sway:1.06deg;">
+        <path class="tallo" d="M94,264.8403534558091 L94,150.56095090930182" style="--len:114.2794025465073; stroke-width:4.3; animation-delay:0.19s; animation-duration:1.0s"/>
+        <g transform="rotate(-30 81,177.56095090930182)"><ellipse class="hoja" cx="81" cy="177.56095090930182" rx="11.9" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:0.74s"/></g>
+        <g transform="rotate(28 107,201.56095090930182)"><ellipse class="hoja" cx="107" cy="201.56095090930182" rx="11.9" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:0.81s"/></g>
+        <g class="cabeza" style="animation-delay:0.94s">
+          <g transform="translate(94.0 150.56095090930182) scale(1.172)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:129px 263.1349193693767px; opacity:0.95; animation-delay:3.51s; animation-duration:5.03s; --sway:1.2deg;">
+        <path class="tallo" d="M129,263.1349193693767 L129,179.37933935655312" style="--len:83.75558001282357; stroke-width:4.6; animation-delay:0.49s; animation-duration:1.04s"/>
+        <g transform="rotate(-30 116,208.37933935655312)"><ellipse class="hoja" cx="116" cy="208.37933935655312" rx="12.8" ry="6.1" fill="var(--verde-tallo)" style="animation-delay:1.06s"/></g>
+        <g transform="rotate(28 142,233.37933935655312)"><ellipse class="hoja" cx="142" cy="233.37933935655312" rx="12.8" ry="6.1" fill="var(--verde-tallo)" style="animation-delay:1.13s"/></g>
+        <g class="cabeza" style="animation-delay:1.27s">
+          <ellipse cx="129" cy="164.6" rx="8.2" ry="14.8" fill="url(#petalo-grad2)" transform="rotate(0 129 179.37933935655312)"/>
+          <ellipse cx="129" cy="164.6" rx="8.2" ry="14.8" fill="url(#petalo-grad2)" transform="rotate(60 129 179.37933935655312)"/>
+          <ellipse cx="129" cy="164.6" rx="8.2" ry="14.8" fill="url(#petalo-grad2)" transform="rotate(120 129 179.37933935655312)"/>
+          <ellipse cx="129" cy="164.6" rx="8.2" ry="14.8" fill="url(#petalo-grad2)" transform="rotate(180 129 179.37933935655312)"/>
+          <ellipse cx="129" cy="164.6" rx="8.2" ry="14.8" fill="url(#petalo-grad2)" transform="rotate(240 129 179.37933935655312)"/>
+          <ellipse cx="129" cy="164.6" rx="8.2" ry="14.8" fill="url(#petalo-grad2)" transform="rotate(300 129 179.37933935655312)"/>
+          <circle cx="129" cy="179.37933935655312" r="7.4" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:169px 265.27523876503244px; opacity:0.93; animation-delay:3.15s; animation-duration:4.51s; --sway:0.97deg;">
+        <path class="tallo" d="M169,265.27523876503244 L169,165.33075027817458" style="--len:99.94448848685786; stroke-width:4.0; animation-delay:0.64s; animation-duration:0.97s"/>
+        <g transform="rotate(-30 157,190.33075027817458)"><ellipse class="hoja" cx="157" cy="190.33075027817458" rx="11.3" ry="5.5" fill="var(--verde-tallo)" style="animation-delay:1.17s"/></g>
+        <g transform="rotate(28 181,214.33075027817458)"><ellipse class="hoja" cx="181" cy="214.33075027817458" rx="11.3" ry="5.5" fill="var(--verde-tallo)" style="animation-delay:1.24s"/></g>
+        <g class="cabeza" style="animation-delay:1.37s">
+          <ellipse cx="169" cy="152.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(0 169 165.33075027817458)"/>
+          <ellipse cx="169" cy="152.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(60 169 165.33075027817458)"/>
+          <ellipse cx="169" cy="152.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(120 169 165.33075027817458)"/>
+          <ellipse cx="169" cy="152.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(180 169 165.33075027817458)"/>
+          <ellipse cx="169" cy="152.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(240 169 165.33075027817458)"/>
+          <ellipse cx="169" cy="152.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(300 169 165.33075027817458)"/>
+          <circle cx="169" cy="165.33075027817458" r="6.7" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:220px 261.3855050214164px; opacity:0.89; animation-delay:3.5s; animation-duration:3.6s; --sway:1.16deg;">
+        <path class="tallo" d="M220,261.3855050214164 L220,167.51513779612762" style="--len:93.87036722528879; stroke-width:4.5; animation-delay:0.69s; animation-duration:1.03s"/>
+        <g transform="rotate(-30 207,195.51513779612762)"><ellipse class="hoja" cx="207" cy="195.51513779612762" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:1.26s"/></g>
+        <g transform="rotate(28 233,220.51513779612762)"><ellipse class="hoja" cx="233" cy="220.51513779612762" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:1.33s"/></g>
+        <g class="cabeza" style="animation-delay:1.46s">
+          <g transform="translate(220.0 167.51513779612762) scale(1.141)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-lila-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:272px 273.67448017799126px; opacity:0.86; animation-delay:2.64s; animation-duration:5.02s; --sway:1.0deg;">
+        <path class="tallo" d="M272,273.67448017799126 L272,177.2122387375228" style="--len:96.46224144046846; stroke-width:4.1; animation-delay:0.22s; animation-duration:0.98s"/>
+        <g transform="rotate(-30 260,203.2122387375228)"><ellipse class="hoja" cx="260" cy="203.2122387375228" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:0.76s"/></g>
+        <g transform="rotate(28 284,226.2122387375228)"><ellipse class="hoja" cx="284" cy="226.2122387375228" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:0.83s"/></g>
+        <g class="cabeza" style="animation-delay:0.95s">
+          <ellipse cx="272" cy="163.7" rx="7.4" ry="13.5" fill="url(#petalo-grad2)" transform="rotate(0 272 177.2122387375228)"/>
+          <ellipse cx="272" cy="163.7" rx="7.4" ry="13.5" fill="url(#petalo-grad2)" transform="rotate(60 272 177.2122387375228)"/>
+          <ellipse cx="272" cy="163.7" rx="7.4" ry="13.5" fill="url(#petalo-grad2)" transform="rotate(120 272 177.2122387375228)"/>
+          <ellipse cx="272" cy="163.7" rx="7.4" ry="13.5" fill="url(#petalo-grad2)" transform="rotate(180 272 177.2122387375228)"/>
+          <ellipse cx="272" cy="163.7" rx="7.4" ry="13.5" fill="url(#petalo-grad2)" transform="rotate(240 272 177.2122387375228)"/>
+          <ellipse cx="272" cy="163.7" rx="7.4" ry="13.5" fill="url(#petalo-grad2)" transform="rotate(300 272 177.2122387375228)"/>
+          <circle cx="272" cy="177.2122387375228" r="6.8" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:308px 265.89983867671543px; opacity:0.85; animation-delay:2.93s; animation-duration:3.37s; --sway:0.93deg;">
+        <path class="tallo" d="M308,265.89983867671543 L308,163.14027989806817" style="--len:102.75955877864726; stroke-width:3.9; animation-delay:0.24s; animation-duration:0.96s"/>
+        <g transform="rotate(-30 296,188.14027989806817)"><ellipse class="hoja" cx="296" cy="188.14027989806817" rx="11.1" ry="5.4" fill="var(--verde-tallo)" style="animation-delay:0.77s"/></g>
+        <g transform="rotate(28 320,211.14027989806817)"><ellipse class="hoja" cx="320" cy="211.14027989806817" rx="11.1" ry="5.4" fill="var(--verde-tallo)" style="animation-delay:0.84s"/></g>
+        <g class="cabeza" style="animation-delay:0.96s">
+          <ellipse cx="308" cy="150.0" rx="7.2" ry="13.1" fill="url(#petalo-grad2)" transform="rotate(0 308 163.14027989806817)"/>
+          <ellipse cx="308" cy="150.0" rx="7.2" ry="13.1" fill="url(#petalo-grad2)" transform="rotate(60 308 163.14027989806817)"/>
+          <ellipse cx="308" cy="150.0" rx="7.2" ry="13.1" fill="url(#petalo-grad2)" transform="rotate(120 308 163.14027989806817)"/>
+          <ellipse cx="308" cy="150.0" rx="7.2" ry="13.1" fill="url(#petalo-grad2)" transform="rotate(180 308 163.14027989806817)"/>
+          <ellipse cx="308" cy="150.0" rx="7.2" ry="13.1" fill="url(#petalo-grad2)" transform="rotate(240 308 163.14027989806817)"/>
+          <ellipse cx="308" cy="150.0" rx="7.2" ry="13.1" fill="url(#petalo-grad2)" transform="rotate(300 308 163.14027989806817)"/>
+          <circle cx="308" cy="163.14027989806817" r="6.6" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:343px 264.69006058284765px; opacity:0.95; animation-delay:2.91s; animation-duration:5.7s; --sway:1.15deg;">
+        <path class="tallo" d="M343,264.69006058284765 L343,186.16693319395768" style="--len:78.52312738888998; stroke-width:4.5; animation-delay:0.12s; animation-duration:1.03s"/>
+        <g transform="rotate(-30 330,214.16693319395768)"><ellipse class="hoja" cx="330" cy="214.16693319395768" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:0.69s"/></g>
+        <g transform="rotate(28 356,239.16693319395768)"><ellipse class="hoja" cx="356" cy="239.16693319395768" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:0.76s"/></g>
+        <g class="cabeza" style="animation-delay:0.89s">
+          <g transform="translate(343.0 186.16693319395768) scale(1.222)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:408px 272.31914246749983px; opacity:0.93; animation-delay:3.53s; animation-duration:3.51s; --sway:1.18deg;">
+        <path class="tallo" d="M408,272.31914246749983 L408,168.8174584634411" style="--len:103.50168400405872; stroke-width:4.6; animation-delay:0.31s; animation-duration:1.03s"/>
+        <g transform="rotate(-30 395,196.8174584634411)"><ellipse class="hoja" cx="395" cy="196.8174584634411" rx="12.7" ry="6.1" fill="var(--verde-tallo)" style="animation-delay:0.88s"/></g>
+        <g transform="rotate(28 421,222.8174584634411)"><ellipse class="hoja" cx="421" cy="222.8174584634411" rx="12.7" ry="6.1" fill="var(--verde-tallo)" style="animation-delay:0.95s"/></g>
+        <g class="cabeza" style="animation-delay:1.08s">
+          <ellipse cx="408" cy="154.1" rx="8.1" ry="14.7" fill="url(#petalo-grad3)" transform="rotate(0 408 168.8174584634411)"/>
+          <ellipse cx="408" cy="154.1" rx="8.1" ry="14.7" fill="url(#petalo-grad3)" transform="rotate(60 408 168.8174584634411)"/>
+          <ellipse cx="408" cy="154.1" rx="8.1" ry="14.7" fill="url(#petalo-grad3)" transform="rotate(120 408 168.8174584634411)"/>
+          <ellipse cx="408" cy="154.1" rx="8.1" ry="14.7" fill="url(#petalo-grad3)" transform="rotate(180 408 168.8174584634411)"/>
+          <ellipse cx="408" cy="154.1" rx="8.1" ry="14.7" fill="url(#petalo-grad3)" transform="rotate(240 408 168.8174584634411)"/>
+          <ellipse cx="408" cy="154.1" rx="8.1" ry="14.7" fill="url(#petalo-grad3)" transform="rotate(300 408 168.8174584634411)"/>
+          <circle cx="408" cy="168.8174584634411" r="7.3" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:457px 268.944195988036px; opacity:0.88; animation-delay:2.97s; animation-duration:5.48s; --sway:0.99deg;">
+        <path class="tallo" d="M457,268.944195988036 L457,164.97770874625652" style="--len:103.96648724177945; stroke-width:4.1; animation-delay:0.51s; animation-duration:0.97s"/>
+        <g transform="rotate(-30 445,190.97770874625652)"><ellipse class="hoja" cx="445" cy="190.97770874625652" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:1.04s"/></g>
+        <g transform="rotate(28 469,213.97770874625652)"><ellipse class="hoja" cx="469" cy="213.97770874625652" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:1.11s"/></g>
+        <g class="cabeza" style="animation-delay:1.24s">
+          <ellipse cx="457" cy="151.5" rx="7.4" ry="13.5" fill="url(#petalo-grad3)" transform="rotate(0 457 164.97770874625652)"/>
+          <ellipse cx="457" cy="151.5" rx="7.4" ry="13.5" fill="url(#petalo-grad3)" transform="rotate(60 457 164.97770874625652)"/>
+          <ellipse cx="457" cy="151.5" rx="7.4" ry="13.5" fill="url(#petalo-grad3)" transform="rotate(120 457 164.97770874625652)"/>
+          <ellipse cx="457" cy="151.5" rx="7.4" ry="13.5" fill="url(#petalo-grad3)" transform="rotate(180 457 164.97770874625652)"/>
+          <ellipse cx="457" cy="151.5" rx="7.4" ry="13.5" fill="url(#petalo-grad3)" transform="rotate(240 457 164.97770874625652)"/>
+          <ellipse cx="457" cy="151.5" rx="7.4" ry="13.5" fill="url(#petalo-grad3)" transform="rotate(300 457 164.97770874625652)"/>
+          <circle cx="457" cy="164.97770874625652" r="6.7" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:477px 268.532083756591px; opacity:0.96; animation-delay:3.41s; animation-duration:5.62s; --sway:1.0deg;">
+        <path class="tallo" d="M477,268.532083756591 L477,156.61065769157125" style="--len:111.92142606501977; stroke-width:4.1; animation-delay:0.61s; animation-duration:0.98s"/>
+        <g transform="rotate(-30 465,182.61065769157125)"><ellipse class="hoja" cx="465" cy="182.61065769157125" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:1.15s"/></g>
+        <g transform="rotate(28 489,205.61065769157125)"><ellipse class="hoja" cx="489" cy="205.61065769157125" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:1.22s"/></g>
+        <g class="cabeza" style="animation-delay:1.34s">
+          <g transform="translate(477.0 156.61065769157125) scale(1.062)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-rosa-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:503px 267.0444374536656px; opacity:0.87; animation-delay:2.79s; animation-duration:4.59s; --sway:1.07deg;">
+        <path class="tallo" d="M503,267.0444374536656 L503,160.53003804906072" style="--len:106.51439940460486; stroke-width:4.3; animation-delay:0.38s; animation-duration:1.0s"/>
+        <g transform="rotate(-30 490,187.53003804906072)"><ellipse class="hoja" cx="490" cy="187.53003804906072" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:0.93s"/></g>
+        <g transform="rotate(28 516,211.53003804906072)"><ellipse class="hoja" cx="516" cy="211.53003804906072" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:1.0s"/></g>
+        <g class="cabeza" style="animation-delay:1.13s">
+          <ellipse cx="503" cy="146.5" rx="7.7" ry="14.0" fill="url(#petalo-grad3)" transform="rotate(0 503 160.53003804906072)"/>
+          <ellipse cx="503" cy="146.5" rx="7.7" ry="14.0" fill="url(#petalo-grad3)" transform="rotate(60 503 160.53003804906072)"/>
+          <ellipse cx="503" cy="146.5" rx="7.7" ry="14.0" fill="url(#petalo-grad3)" transform="rotate(120 503 160.53003804906072)"/>
+          <ellipse cx="503" cy="146.5" rx="7.7" ry="14.0" fill="url(#petalo-grad3)" transform="rotate(180 503 160.53003804906072)"/>
+          <ellipse cx="503" cy="146.5" rx="7.7" ry="14.0" fill="url(#petalo-grad3)" transform="rotate(240 503 160.53003804906072)"/>
+          <ellipse cx="503" cy="146.5" rx="7.7" ry="14.0" fill="url(#petalo-grad3)" transform="rotate(300 503 160.53003804906072)"/>
+          <circle cx="503" cy="160.53003804906072" r="7.0" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:544px 261.7070333426786px; opacity:0.92; animation-delay:3.2s; animation-duration:3.46s; --sway:0.94deg;">
+        <path class="tallo" d="M544,261.7070333426786 L544,136.25258516402877" style="--len:125.45444817864981; stroke-width:3.9; animation-delay:0.69s; animation-duration:0.96s"/>
+        <g transform="rotate(-30 532,161.25258516402877)"><ellipse class="hoja" cx="532" cy="161.25258516402877" rx="11.2" ry="5.4" fill="var(--verde-tallo)" style="animation-delay:1.22s"/></g>
+        <g transform="rotate(28 556,184.25258516402877)"><ellipse class="hoja" cx="556" cy="184.25258516402877" rx="11.2" ry="5.4" fill="var(--verde-tallo)" style="animation-delay:1.29s"/></g>
+        <g class="cabeza" style="animation-delay:1.41s">
+          <ellipse cx="544" cy="123.1" rx="7.2" ry="13.2" fill="url(#petalo-grad)" transform="rotate(0 544 136.25258516402877)"/>
+          <ellipse cx="544" cy="123.1" rx="7.2" ry="13.2" fill="url(#petalo-grad)" transform="rotate(60 544 136.25258516402877)"/>
+          <ellipse cx="544" cy="123.1" rx="7.2" ry="13.2" fill="url(#petalo-grad)" transform="rotate(120 544 136.25258516402877)"/>
+          <ellipse cx="544" cy="123.1" rx="7.2" ry="13.2" fill="url(#petalo-grad)" transform="rotate(180 544 136.25258516402877)"/>
+          <ellipse cx="544" cy="123.1" rx="7.2" ry="13.2" fill="url(#petalo-grad)" transform="rotate(240 544 136.25258516402877)"/>
+          <ellipse cx="544" cy="123.1" rx="7.2" ry="13.2" fill="url(#petalo-grad)" transform="rotate(300 544 136.25258516402877)"/>
+          <circle cx="544" cy="136.25258516402877" r="6.6" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:622px 263.7689930606476px; opacity:0.96; animation-delay:2.94s; animation-duration:4.12s; --sway:1.08deg;">
+        <path class="tallo" d="M622,263.7689930606476 L622,166.01141825172917" style="--len:97.7575748089184; stroke-width:4.3; animation-delay:0.65s; animation-duration:1.0s"/>
+        <g transform="rotate(-30 609,193.01141825172917)"><ellipse class="hoja" cx="609" cy="193.01141825172917" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:1.2s"/></g>
+        <g transform="rotate(28 635,217.01141825172917)"><ellipse class="hoja" cx="635" cy="217.01141825172917" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:1.27s"/></g>
+        <g class="cabeza" style="animation-delay:1.4s">
+          <g transform="translate(622.0 166.01141825172917) scale(1.180)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:629px 261.5205909809494px; opacity:0.96; animation-delay:3.1s; animation-duration:5.52s; --sway:1.18deg;">
+        <path class="tallo" d="M629,261.5205909809494 L629,135.05766639225016" style="--len:126.46292458869925; stroke-width:4.6; animation-delay:0.37s; animation-duration:1.03s"/>
+        <g transform="rotate(-30 616,163.05766639225016)"><ellipse class="hoja" cx="616" cy="163.05766639225016" rx="12.7" ry="6.1" fill="var(--verde-tallo)" style="animation-delay:0.94s"/></g>
+        <g transform="rotate(28 642,189.05766639225016)"><ellipse class="hoja" cx="642" cy="189.05766639225016" rx="12.7" ry="6.1" fill="var(--verde-tallo)" style="animation-delay:1.01s"/></g>
+        <g class="cabeza" style="animation-delay:1.14s">
+          <ellipse cx="629" cy="120.4" rx="8.1" ry="14.7" fill="url(#petalo-grad2)" transform="rotate(0 629 135.05766639225016)"/>
+          <ellipse cx="629" cy="120.4" rx="8.1" ry="14.7" fill="url(#petalo-grad2)" transform="rotate(60 629 135.05766639225016)"/>
+          <ellipse cx="629" cy="120.4" rx="8.1" ry="14.7" fill="url(#petalo-grad2)" transform="rotate(120 629 135.05766639225016)"/>
+          <ellipse cx="629" cy="120.4" rx="8.1" ry="14.7" fill="url(#petalo-grad2)" transform="rotate(180 629 135.05766639225016)"/>
+          <ellipse cx="629" cy="120.4" rx="8.1" ry="14.7" fill="url(#petalo-grad2)" transform="rotate(240 629 135.05766639225016)"/>
+          <ellipse cx="629" cy="120.4" rx="8.1" ry="14.7" fill="url(#petalo-grad2)" transform="rotate(300 629 135.05766639225016)"/>
+          <circle cx="629" cy="135.05766639225016" r="7.3" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:700px 263.18163052324695px; opacity:0.85; animation-delay:2.67s; animation-duration:5.04s; --sway:0.97deg;">
+        <path class="tallo" d="M700,263.18163052324695 L700,145.32074415248067" style="--len:117.86088637076628; stroke-width:4.0; animation-delay:0.14s; animation-duration:0.97s"/>
+        <g transform="rotate(-30 688,170.32074415248067)"><ellipse class="hoja" cx="688" cy="170.32074415248067" rx="11.3" ry="5.5" fill="var(--verde-tallo)" style="animation-delay:0.67s"/></g>
+        <g transform="rotate(28 712,194.32074415248067)"><ellipse class="hoja" cx="712" cy="194.32074415248067" rx="11.3" ry="5.5" fill="var(--verde-tallo)" style="animation-delay:0.74s"/></g>
+        <g class="cabeza" style="animation-delay:0.87s">
+          <ellipse cx="700" cy="132.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(0 700 145.32074415248067)"/>
+          <ellipse cx="700" cy="132.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(60 700 145.32074415248067)"/>
+          <ellipse cx="700" cy="132.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(120 700 145.32074415248067)"/>
+          <ellipse cx="700" cy="132.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(180 700 145.32074415248067)"/>
+          <ellipse cx="700" cy="132.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(240 700 145.32074415248067)"/>
+          <ellipse cx="700" cy="132.0" rx="7.3" ry="13.3" fill="url(#petalo-grad3)" transform="rotate(300 700 145.32074415248067)"/>
+          <circle cx="700" cy="145.32074415248067" r="6.7" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:737px 271.9268615033222px; opacity:0.91; animation-delay:2.63s; animation-duration:3.77s; --sway:1.0deg;">
+        <path class="tallo" d="M737,271.9268615033222 L737,169.49161315245826" style="--len:102.43524835086393; stroke-width:4.1; animation-delay:0.41s; animation-duration:0.98s"/>
+        <g transform="rotate(-30 725,195.49161315245826)"><ellipse class="hoja" cx="725" cy="195.49161315245826" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:0.95s"/></g>
+        <g transform="rotate(28 749,218.49161315245826)"><ellipse class="hoja" cx="749" cy="218.49161315245826" rx="11.5" ry="5.6" fill="var(--verde-tallo)" style="animation-delay:1.02s"/></g>
+        <g class="cabeza" style="animation-delay:1.15s">
+          <g transform="translate(737.0 169.49161315245826) scale(1.062)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-coral-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:768px 267.4108677999759px; opacity:0.9; animation-delay:3.0s; animation-duration:5.37s; --sway:1.08deg;">
+        <path class="tallo" d="M768,267.4108677999759 L768,168.38818712042553" style="--len:99.02268067955038; stroke-width:4.3; animation-delay:0.29s; animation-duration:1.0s"/>
+        <g transform="rotate(-30 755,195.38818712042553)"><ellipse class="hoja" cx="755" cy="195.38818712042553" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:0.84s"/></g>
+        <g transform="rotate(28 781,219.38818712042553)"><ellipse class="hoja" cx="781" cy="219.38818712042553" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:0.91s"/></g>
+        <g class="cabeza" style="animation-delay:1.04s">
+          <ellipse cx="768" cy="154.4" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(0 768 168.38818712042553)"/>
+          <ellipse cx="768" cy="154.4" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(60 768 168.38818712042553)"/>
+          <ellipse cx="768" cy="154.4" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(120 768 168.38818712042553)"/>
+          <ellipse cx="768" cy="154.4" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(180 768 168.38818712042553)"/>
+          <ellipse cx="768" cy="154.4" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(240 768 168.38818712042553)"/>
+          <ellipse cx="768" cy="154.4" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(300 768 168.38818712042553)"/>
+          <circle cx="768" cy="168.38818712042553" r="7.0" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:831px 268.2130252867542px; opacity:0.88; animation-delay:2.6s; animation-duration:5.08s; --sway:1.08deg;">
+        <path class="tallo" d="M831,268.2130252867542 L831,181.20411924917738" style="--len:87.00890603757682; stroke-width:4.3; animation-delay:0.38s; animation-duration:1.0s"/>
+        <g transform="rotate(-30 818,208.20411924917738)"><ellipse class="hoja" cx="818" cy="208.20411924917738" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:0.93s"/></g>
+        <g transform="rotate(28 844,232.20411924917738)"><ellipse class="hoja" cx="844" cy="232.20411924917738" rx="12.0" ry="5.8" fill="var(--verde-tallo)" style="animation-delay:1.0s"/></g>
+        <g class="cabeza" style="animation-delay:1.13s">
+          <ellipse cx="831" cy="167.2" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(0 831 181.20411924917738)"/>
+          <ellipse cx="831" cy="167.2" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(60 831 181.20411924917738)"/>
+          <ellipse cx="831" cy="167.2" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(120 831 181.20411924917738)"/>
+          <ellipse cx="831" cy="167.2" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(180 831 181.20411924917738)"/>
+          <ellipse cx="831" cy="167.2" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(240 831 181.20411924917738)"/>
+          <ellipse cx="831" cy="167.2" rx="7.7" ry="14.0" fill="url(#petalo-grad)" transform="rotate(300 831 181.20411924917738)"/>
+          <circle cx="831" cy="181.20411924917738" r="7.0" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:841px 272.9187375808179px; opacity:0.89; animation-delay:3.31s; animation-duration:3.77s; --sway:1.15deg;">
+        <path class="tallo" d="M841,272.9187375808179 L841,148.27147343578315" style="--len:124.64726414503474; stroke-width:4.5; animation-delay:0.22s; animation-duration:1.03s"/>
+        <g transform="rotate(-30 828,176.27147343578315)"><ellipse class="hoja" cx="828" cy="176.27147343578315" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:0.79s"/></g>
+        <g transform="rotate(28 854,201.27147343578315)"><ellipse class="hoja" cx="854" cy="201.27147343578315" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:0.86s"/></g>
+        <g class="cabeza" style="animation-delay:0.99s">
+          <g transform="translate(841.0 148.27147343578315) scale(1.222)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:888px 265.43058512626754px; opacity:0.87; animation-delay:3.38s; animation-duration:4.31s; --sway:0.96deg;">
+        <path class="tallo" d="M888,265.43058512626754 L888,141.5371865346589" style="--len:123.89339859160864; stroke-width:4.0; animation-delay:0.06s; animation-duration:0.96s"/>
+        <g transform="rotate(-30 876,166.5371865346589)"><ellipse class="hoja" cx="876" cy="166.5371865346589" rx="11.3" ry="5.5" fill="var(--verde-tallo)" style="animation-delay:0.59s"/></g>
+        <g transform="rotate(28 900,189.5371865346589)"><ellipse class="hoja" cx="900" cy="189.5371865346589" rx="11.3" ry="5.5" fill="var(--verde-tallo)" style="animation-delay:0.66s"/></g>
+        <g class="cabeza" style="animation-delay:0.78s">
+          <ellipse cx="888" cy="128.2" rx="7.3" ry="13.3" fill="url(#petalo-grad2)" transform="rotate(0 888 141.5371865346589)"/>
+          <ellipse cx="888" cy="128.2" rx="7.3" ry="13.3" fill="url(#petalo-grad2)" transform="rotate(60 888 141.5371865346589)"/>
+          <ellipse cx="888" cy="128.2" rx="7.3" ry="13.3" fill="url(#petalo-grad2)" transform="rotate(120 888 141.5371865346589)"/>
+          <ellipse cx="888" cy="128.2" rx="7.3" ry="13.3" fill="url(#petalo-grad2)" transform="rotate(180 888 141.5371865346589)"/>
+          <ellipse cx="888" cy="128.2" rx="7.3" ry="13.3" fill="url(#petalo-grad2)" transform="rotate(240 888 141.5371865346589)"/>
+          <ellipse cx="888" cy="128.2" rx="7.3" ry="13.3" fill="url(#petalo-grad2)" transform="rotate(300 888 141.5371865346589)"/>
+          <circle cx="888" cy="141.5371865346589" r="6.6" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:944px 260.248621458894px; opacity:0.9; animation-delay:3.04s; animation-duration:4.16s; --sway:1.15deg;">
+        <path class="tallo" d="M944,260.248621458894 L944,178.31844137094373" style="--len:81.93018008795025; stroke-width:4.5; animation-delay:0.48s; animation-duration:1.02s"/>
+        <g transform="rotate(-30 931,206.31844137094373)"><ellipse class="hoja" cx="931" cy="206.31844137094373" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:1.04s"/></g>
+        <g transform="rotate(28 957,231.31844137094373)"><ellipse class="hoja" cx="957" cy="231.31844137094373" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:1.11s"/></g>
+        <g class="cabeza" style="animation-delay:1.25s">
+          <ellipse cx="944" cy="163.8" rx="8.0" ry="14.5" fill="url(#petalo-grad)" transform="rotate(0 944 178.31844137094373)"/>
+          <ellipse cx="944" cy="163.8" rx="8.0" ry="14.5" fill="url(#petalo-grad)" transform="rotate(60 944 178.31844137094373)"/>
+          <ellipse cx="944" cy="163.8" rx="8.0" ry="14.5" fill="url(#petalo-grad)" transform="rotate(120 944 178.31844137094373)"/>
+          <ellipse cx="944" cy="163.8" rx="8.0" ry="14.5" fill="url(#petalo-grad)" transform="rotate(180 944 178.31844137094373)"/>
+          <ellipse cx="944" cy="163.8" rx="8.0" ry="14.5" fill="url(#petalo-grad)" transform="rotate(240 944 178.31844137094373)"/>
+          <ellipse cx="944" cy="163.8" rx="8.0" ry="14.5" fill="url(#petalo-grad)" transform="rotate(300 944 178.31844137094373)"/>
+          <circle cx="944" cy="178.31844137094373" r="7.2" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:969px 264.8089566010162px; opacity:0.93; animation-delay:3.38s; animation-duration:5.23s; --sway:1.16deg;">
+        <path class="tallo" d="M969,264.8089566010162 L969,169.9361715293782" style="--len:94.87278507163796; stroke-width:4.5; animation-delay:0.44s; animation-duration:1.03s"/>
+        <g transform="rotate(-30 956,197.9361715293782)"><ellipse class="hoja" cx="956" cy="197.9361715293782" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:1.01s"/></g>
+        <g transform="rotate(28 982,222.9361715293782)"><ellipse class="hoja" cx="982" cy="222.9361715293782" rx="12.5" ry="6.0" fill="var(--verde-tallo)" style="animation-delay:1.08s"/></g>
+        <g class="cabeza" style="animation-delay:1.21s">
+          <g transform="translate(969.0 169.9361715293782) scale(1.141)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-lila-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:13px 273.9704630390699px; opacity:1.0; animation-delay:3.21s; animation-duration:5.33s; --sway:1.45deg;">
+        <path class="tallo" d="M13,273.9704630390699 L13,114.15054915924557" style="--len:159.81991387982433; stroke-width:5.3; animation-delay:0.19s; animation-duration:1.12s"/>
+        <g transform="rotate(-30 -2,146.15054915924557)"><ellipse class="hoja" cx="-2" cy="146.15054915924557" rx="14.4" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:0.81s"/></g>
+        <g transform="rotate(28 28,174.15054915924557)"><ellipse class="hoja" cx="28" cy="174.15054915924557" rx="14.4" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:0.88s"/></g>
+        <g class="cabeza" style="animation-delay:1.03s">
+          <ellipse cx="13" cy="97.8" rx="9.1" ry="16.4" fill="url(#petalo-grad3)" transform="rotate(0 13 114.15054915924557)"/>
+          <ellipse cx="13" cy="97.8" rx="9.1" ry="16.4" fill="url(#petalo-grad3)" transform="rotate(60 13 114.15054915924557)"/>
+          <ellipse cx="13" cy="97.8" rx="9.1" ry="16.4" fill="url(#petalo-grad3)" transform="rotate(120 13 114.15054915924557)"/>
+          <ellipse cx="13" cy="97.8" rx="9.1" ry="16.4" fill="url(#petalo-grad3)" transform="rotate(180 13 114.15054915924557)"/>
+          <ellipse cx="13" cy="97.8" rx="9.1" ry="16.4" fill="url(#petalo-grad3)" transform="rotate(240 13 114.15054915924557)"/>
+          <ellipse cx="13" cy="97.8" rx="9.1" ry="16.4" fill="url(#petalo-grad3)" transform="rotate(300 13 114.15054915924557)"/>
+          <circle cx="13" cy="114.15054915924557" r="8.2" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:44px 274.4848334696129px; opacity:1.0; animation-delay:3.09s; animation-duration:3.53s; --sway:1.34deg;">
+        <path class="tallo" d="M44,274.4848334696129 L44,107.70826476499462" style="--len:166.77656870461828; stroke-width:5.0; animation-delay:0.67s; animation-duration:1.09s"/>
+        <g transform="rotate(-30 30,138.70826476499462)"><ellipse class="hoja" cx="30" cy="138.70826476499462" rx="13.7" ry="6.5" fill="var(--verde-tallo)" style="animation-delay:1.27s"/></g>
+        <g transform="rotate(28 58,164.70826476499462)"><ellipse class="hoja" cx="58" cy="164.70826476499462" rx="13.7" ry="6.5" fill="var(--verde-tallo)" style="animation-delay:1.35s"/></g>
+        <g class="cabeza" style="animation-delay:1.49s">
+          <ellipse cx="44" cy="92.0" rx="8.7" ry="15.7" fill="url(#petalo-grad)" transform="rotate(0 44 107.70826476499462)"/>
+          <ellipse cx="44" cy="92.0" rx="8.7" ry="15.7" fill="url(#petalo-grad)" transform="rotate(60 44 107.70826476499462)"/>
+          <ellipse cx="44" cy="92.0" rx="8.7" ry="15.7" fill="url(#petalo-grad)" transform="rotate(120 44 107.70826476499462)"/>
+          <ellipse cx="44" cy="92.0" rx="8.7" ry="15.7" fill="url(#petalo-grad)" transform="rotate(180 44 107.70826476499462)"/>
+          <ellipse cx="44" cy="92.0" rx="8.7" ry="15.7" fill="url(#petalo-grad)" transform="rotate(240 44 107.70826476499462)"/>
+          <ellipse cx="44" cy="92.0" rx="8.7" ry="15.7" fill="url(#petalo-grad)" transform="rotate(300 44 107.70826476499462)"/>
+          <circle cx="44" cy="107.70826476499462" r="7.9" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:143px 281.47050162609474px; opacity:1.0; animation-delay:3.52s; animation-duration:4.67s; --sway:1.61deg;">
+        <path class="tallo" d="M143,281.47050162609474 L143,123.8117314484104" style="--len:157.65877017768435; stroke-width:5.8; animation-delay:0.08s; animation-duration:1.17s"/>
+        <g transform="rotate(-30 127,158.8117314484104)"><ellipse class="hoja" cx="127" cy="158.8117314484104" rx="15.4" ry="7.3" fill="var(--verde-tallo)" style="animation-delay:0.72s"/></g>
+        <g transform="rotate(28 159,187.8117314484104)"><ellipse class="hoja" cx="159" cy="187.8117314484104" rx="15.4" ry="7.3" fill="var(--verde-tallo)" style="animation-delay:0.81s"/></g>
+        <g class="cabeza" style="animation-delay:0.96s">
+          <g transform="translate(143.0 123.8117314484104) scale(1.467)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:192px 280.1983162472563px; opacity:1.0; animation-delay:3.48s; animation-duration:5.09s; --sway:1.34deg;">
+        <path class="tallo" d="M192,280.1983162472563 L192,104.27527619410014" style="--len:175.92304005315614; stroke-width:5.0; animation-delay:0.31s; animation-duration:1.09s"/>
+        <g transform="rotate(-30 178,135.27527619410014)"><ellipse class="hoja" cx="178" cy="135.27527619410014" rx="13.7" ry="6.5" fill="var(--verde-tallo)" style="animation-delay:0.91s"/></g>
+        <g transform="rotate(28 206,162.27527619410014)"><ellipse class="hoja" cx="206" cy="162.27527619410014" rx="13.7" ry="6.5" fill="var(--verde-tallo)" style="animation-delay:0.99s"/></g>
+        <g class="cabeza" style="animation-delay:1.13s">
+          <ellipse cx="192" cy="88.6" rx="8.7" ry="15.7" fill="url(#petalo-grad2)" transform="rotate(0 192 104.27527619410014)"/>
+          <ellipse cx="192" cy="88.6" rx="8.7" ry="15.7" fill="url(#petalo-grad2)" transform="rotate(60 192 104.27527619410014)"/>
+          <ellipse cx="192" cy="88.6" rx="8.7" ry="15.7" fill="url(#petalo-grad2)" transform="rotate(120 192 104.27527619410014)"/>
+          <ellipse cx="192" cy="88.6" rx="8.7" ry="15.7" fill="url(#petalo-grad2)" transform="rotate(180 192 104.27527619410014)"/>
+          <ellipse cx="192" cy="88.6" rx="8.7" ry="15.7" fill="url(#petalo-grad2)" transform="rotate(240 192 104.27527619410014)"/>
+          <ellipse cx="192" cy="88.6" rx="8.7" ry="15.7" fill="url(#petalo-grad2)" transform="rotate(300 192 104.27527619410014)"/>
+          <circle cx="192" cy="104.27527619410014" r="7.9" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:266px 282.3447211182011px; opacity:1.0; animation-delay:3.2s; animation-duration:5.14s; --sway:1.6deg;">
+        <path class="tallo" d="M266,282.3447211182011 L266,90.31980064446387" style="--len:192.02492047373724; stroke-width:5.7; animation-delay:0.37s; animation-duration:1.17s"/>
+        <g transform="rotate(-30 251,125.31980064446387)"><ellipse class="hoja" cx="251" cy="125.31980064446387" rx="15.4" ry="7.2" fill="var(--verde-tallo)" style="animation-delay:1.01s"/></g>
+        <g transform="rotate(28 281,154.31980064446387)"><ellipse class="hoja" cx="281" cy="154.31980064446387" rx="15.4" ry="7.2" fill="var(--verde-tallo)" style="animation-delay:1.1s"/></g>
+        <g class="cabeza" style="animation-delay:1.25s">
+          <ellipse cx="266" cy="72.9" rx="9.6" ry="17.4" fill="url(#petalo-grad3)" transform="rotate(0 266 90.31980064446387)"/>
+          <ellipse cx="266" cy="72.9" rx="9.6" ry="17.4" fill="url(#petalo-grad3)" transform="rotate(60 266 90.31980064446387)"/>
+          <ellipse cx="266" cy="72.9" rx="9.6" ry="17.4" fill="url(#petalo-grad3)" transform="rotate(120 266 90.31980064446387)"/>
+          <ellipse cx="266" cy="72.9" rx="9.6" ry="17.4" fill="url(#petalo-grad3)" transform="rotate(180 266 90.31980064446387)"/>
+          <ellipse cx="266" cy="72.9" rx="9.6" ry="17.4" fill="url(#petalo-grad3)" transform="rotate(240 266 90.31980064446387)"/>
+          <ellipse cx="266" cy="72.9" rx="9.6" ry="17.4" fill="url(#petalo-grad3)" transform="rotate(300 266 90.31980064446387)"/>
+          <circle cx="266" cy="90.31980064446387" r="8.7" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:299px 269.1288264748255px; opacity:1.0; animation-delay:2.69s; animation-duration:3.54s; --sway:1.6deg;">
+        <path class="tallo" d="M299,269.1288264748255 L299,105.7266409268924" style="--len:163.40218554793307; stroke-width:5.7; animation-delay:0.65s; animation-duration:1.17s"/>
+        <g transform="rotate(-30 284,139.7266409268924)"><ellipse class="hoja" cx="284" cy="139.7266409268924" rx="15.3" ry="7.2" fill="var(--verde-tallo)" style="animation-delay:1.29s"/></g>
+        <g transform="rotate(28 314,169.7266409268924)"><ellipse class="hoja" cx="314" cy="169.7266409268924" rx="15.3" ry="7.2" fill="var(--verde-tallo)" style="animation-delay:1.38s"/></g>
+        <g class="cabeza" style="animation-delay:1.53s">
+          <g transform="translate(299.0 105.7266409268924) scale(1.361)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-rosa-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-rosa)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:339px 268.79311695481624px; opacity:1.0; animation-delay:3.53s; animation-duration:4.9s; --sway:1.65deg;">
+        <path class="tallo" d="M339,268.79311695481624 L339,64.45258077236912" style="--len:204.34053618244712; stroke-width:5.9; animation-delay:0.81s; animation-duration:1.18s"/>
+        <g transform="rotate(-30 323,99.45258077236912)"><ellipse class="hoja" cx="323" cy="99.45258077236912" rx="15.7" ry="7.4" fill="var(--verde-tallo)" style="animation-delay:1.46s"/></g>
+        <g transform="rotate(28 355,129.45258077236912)"><ellipse class="hoja" cx="355" cy="129.45258077236912" rx="15.7" ry="7.4" fill="var(--verde-tallo)" style="animation-delay:1.54s"/></g>
+        <g class="cabeza" style="animation-delay:1.7s">
+          <ellipse cx="339" cy="46.8" rx="9.8" ry="17.7" fill="url(#petalo-grad2)" transform="rotate(0 339 64.45258077236912)"/>
+          <ellipse cx="339" cy="46.8" rx="9.8" ry="17.7" fill="url(#petalo-grad2)" transform="rotate(60 339 64.45258077236912)"/>
+          <ellipse cx="339" cy="46.8" rx="9.8" ry="17.7" fill="url(#petalo-grad2)" transform="rotate(120 339 64.45258077236912)"/>
+          <ellipse cx="339" cy="46.8" rx="9.8" ry="17.7" fill="url(#petalo-grad2)" transform="rotate(180 339 64.45258077236912)"/>
+          <ellipse cx="339" cy="46.8" rx="9.8" ry="17.7" fill="url(#petalo-grad2)" transform="rotate(240 339 64.45258077236912)"/>
+          <ellipse cx="339" cy="46.8" rx="9.8" ry="17.7" fill="url(#petalo-grad2)" transform="rotate(300 339 64.45258077236912)"/>
+          <circle cx="339" cy="64.45258077236912" r="8.8" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:392px 276.5292748304407px; opacity:1.0; animation-delay:2.97s; animation-duration:4.49s; --sway:1.41deg;">
+        <path class="tallo" d="M392,276.5292748304407 L392,95.34598868191352" style="--len:181.1832861485272; stroke-width:5.2; animation-delay:0.51s; animation-duration:1.11s"/>
+        <g transform="rotate(-30 378,127.34598868191352)"><ellipse class="hoja" cx="378" cy="127.34598868191352" rx="14.1" ry="6.7" fill="var(--verde-tallo)" style="animation-delay:1.12s"/></g>
+        <g transform="rotate(28 406,154.34598868191352)"><ellipse class="hoja" cx="406" cy="154.34598868191352" rx="14.1" ry="6.7" fill="var(--verde-tallo)" style="animation-delay:1.2s"/></g>
+        <g class="cabeza" style="animation-delay:1.34s">
+          <ellipse cx="392" cy="79.2" rx="8.9" ry="16.1" fill="url(#petalo-grad2)" transform="rotate(0 392 95.34598868191352)"/>
+          <ellipse cx="392" cy="79.2" rx="8.9" ry="16.1" fill="url(#petalo-grad2)" transform="rotate(60 392 95.34598868191352)"/>
+          <ellipse cx="392" cy="79.2" rx="8.9" ry="16.1" fill="url(#petalo-grad2)" transform="rotate(120 392 95.34598868191352)"/>
+          <ellipse cx="392" cy="79.2" rx="8.9" ry="16.1" fill="url(#petalo-grad2)" transform="rotate(180 392 95.34598868191352)"/>
+          <ellipse cx="392" cy="79.2" rx="8.9" ry="16.1" fill="url(#petalo-grad2)" transform="rotate(240 392 95.34598868191352)"/>
+          <ellipse cx="392" cy="79.2" rx="8.9" ry="16.1" fill="url(#petalo-grad2)" transform="rotate(300 392 95.34598868191352)"/>
+          <circle cx="392" cy="95.34598868191352" r="8.1" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:453px 277.19861042771583px; opacity:1.0; animation-delay:3.1s; animation-duration:5.07s; --sway:1.35deg;">
+        <path class="tallo" d="M453,277.19861042771583 L453,133.82587897064798" style="--len:143.37273145706786; stroke-width:5.1; animation-delay:0.36s; animation-duration:1.09s"/>
+        <g transform="rotate(-30 439,164.82587897064798)"><ellipse class="hoja" cx="439" cy="164.82587897064798" rx="13.8" ry="6.6" fill="var(--verde-tallo)" style="animation-delay:0.96s"/></g>
+        <g transform="rotate(28 467,191.82587897064798)"><ellipse class="hoja" cx="467" cy="191.82587897064798" rx="13.8" ry="6.6" fill="var(--verde-tallo)" style="animation-delay:1.04s"/></g>
+        <g class="cabeza" style="animation-delay:1.18s">
+          <g transform="translate(453.0 133.82587897064798) scale(1.332)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:509px 271.12713749981043px; opacity:1.0; animation-delay:2.31s; animation-duration:3.92s; --sway:1.37deg;">
+        <path class="tallo" d="M509,271.12713749981043 L509,108.01824174102296" style="--len:163.10889575878747; stroke-width:5.1; animation-delay:0.05s; animation-duration:1.1s"/>
+        <g transform="rotate(-30 495,139.01824174102296)"><ellipse class="hoja" cx="495" cy="139.01824174102296" rx="13.9" ry="6.6" fill="var(--verde-tallo)" style="animation-delay:0.66s"/></g>
+        <g transform="rotate(28 523,166.01824174102296)"><ellipse class="hoja" cx="523" cy="166.01824174102296" rx="13.9" ry="6.6" fill="var(--verde-tallo)" style="animation-delay:0.73s"/></g>
+        <g class="cabeza" style="animation-delay:0.88s">
+          <ellipse cx="509" cy="92.1" rx="8.8" ry="15.9" fill="url(#petalo-grad2)" transform="rotate(0 509 108.01824174102296)"/>
+          <ellipse cx="509" cy="92.1" rx="8.8" ry="15.9" fill="url(#petalo-grad2)" transform="rotate(60 509 108.01824174102296)"/>
+          <ellipse cx="509" cy="92.1" rx="8.8" ry="15.9" fill="url(#petalo-grad2)" transform="rotate(120 509 108.01824174102296)"/>
+          <ellipse cx="509" cy="92.1" rx="8.8" ry="15.9" fill="url(#petalo-grad2)" transform="rotate(180 509 108.01824174102296)"/>
+          <ellipse cx="509" cy="92.1" rx="8.8" ry="15.9" fill="url(#petalo-grad2)" transform="rotate(240 509 108.01824174102296)"/>
+          <ellipse cx="509" cy="92.1" rx="8.8" ry="15.9" fill="url(#petalo-grad2)" transform="rotate(300 509 108.01824174102296)"/>
+          <circle cx="509" cy="108.01824174102296" r="8.0" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:573px 274.650996085064px; opacity:1.0; animation-delay:3.04s; animation-duration:5.69s; --sway:1.38deg;">
+        <path class="tallo" d="M573,274.650996085064 L573,115.79165204592158" style="--len:158.8593440391424; stroke-width:5.1; animation-delay:0.49s; animation-duration:1.1s"/>
+        <g transform="rotate(-30 559,146.79165204592158)"><ellipse class="hoja" cx="559" cy="146.79165204592158" rx="14.0" ry="6.6" fill="var(--verde-tallo)" style="animation-delay:1.1s"/></g>
+        <g transform="rotate(28 587,173.79165204592158)"><ellipse class="hoja" cx="587" cy="173.79165204592158" rx="14.0" ry="6.6" fill="var(--verde-tallo)" style="animation-delay:1.17s"/></g>
+        <g class="cabeza" style="animation-delay:1.31s">
+          <ellipse cx="573" cy="99.8" rx="8.8" ry="16.0" fill="url(#petalo-grad3)" transform="rotate(0 573 115.79165204592158)"/>
+          <ellipse cx="573" cy="99.8" rx="8.8" ry="16.0" fill="url(#petalo-grad3)" transform="rotate(60 573 115.79165204592158)"/>
+          <ellipse cx="573" cy="99.8" rx="8.8" ry="16.0" fill="url(#petalo-grad3)" transform="rotate(120 573 115.79165204592158)"/>
+          <ellipse cx="573" cy="99.8" rx="8.8" ry="16.0" fill="url(#petalo-grad3)" transform="rotate(180 573 115.79165204592158)"/>
+          <ellipse cx="573" cy="99.8" rx="8.8" ry="16.0" fill="url(#petalo-grad3)" transform="rotate(240 573 115.79165204592158)"/>
+          <ellipse cx="573" cy="99.8" rx="8.8" ry="16.0" fill="url(#petalo-grad3)" transform="rotate(300 573 115.79165204592158)"/>
+          <circle cx="573" cy="115.79165204592158" r="8.0" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:653px 277.5605853400742px; opacity:1.0; animation-delay:2.8s; animation-duration:5.55s; --sway:1.54deg;">
+        <path class="tallo" d="M653,277.5605853400742 L653,85.89360983348666" style="--len:191.66697550658756; stroke-width:5.6; animation-delay:0.07s; animation-duration:1.15s"/>
+        <g transform="rotate(-30 638,119.89360983348666)"><ellipse class="hoja" cx="638" cy="119.89360983348666" rx="15.0" ry="7.1" fill="var(--verde-tallo)" style="animation-delay:0.7s"/></g>
+        <g transform="rotate(28 668,147.89360983348666)"><ellipse class="hoja" cx="668" cy="147.89360983348666" rx="15.0" ry="7.1" fill="var(--verde-tallo)" style="animation-delay:0.78s"/></g>
+        <g class="cabeza" style="animation-delay:0.93s">
+          <g transform="translate(653.0 85.89360983348666) scale(1.337)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-coral-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-coral)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:705px 276.67125911845824px; opacity:1.0; animation-delay:2.38s; animation-duration:5.57s; --sway:1.43deg;">
+        <path class="tallo" d="M705,276.67125911845824 L705,73.76636393323662" style="--len:202.90489518522162; stroke-width:5.3; animation-delay:0.77s; animation-duration:1.11s"/>
+        <g transform="rotate(-30 690,105.76636393323662)"><ellipse class="hoja" cx="690" cy="105.76636393323662" rx="14.3" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:1.38s"/></g>
+        <g transform="rotate(28 720,133.76636393323662)"><ellipse class="hoja" cx="720" cy="133.76636393323662" rx="14.3" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:1.46s"/></g>
+        <g class="cabeza" style="animation-delay:1.6s">
+          <ellipse cx="705" cy="57.5" rx="9.0" ry="16.3" fill="url(#petalo-grad3)" transform="rotate(0 705 73.76636393323662)"/>
+          <ellipse cx="705" cy="57.5" rx="9.0" ry="16.3" fill="url(#petalo-grad3)" transform="rotate(60 705 73.76636393323662)"/>
+          <ellipse cx="705" cy="57.5" rx="9.0" ry="16.3" fill="url(#petalo-grad3)" transform="rotate(120 705 73.76636393323662)"/>
+          <ellipse cx="705" cy="57.5" rx="9.0" ry="16.3" fill="url(#petalo-grad3)" transform="rotate(180 705 73.76636393323662)"/>
+          <ellipse cx="705" cy="57.5" rx="9.0" ry="16.3" fill="url(#petalo-grad3)" transform="rotate(240 705 73.76636393323662)"/>
+          <ellipse cx="705" cy="57.5" rx="9.0" ry="16.3" fill="url(#petalo-grad3)" transform="rotate(300 705 73.76636393323662)"/>
+          <circle cx="705" cy="73.76636393323662" r="8.1" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:737px 273.849205318738px; opacity:1.0; animation-delay:2.93s; animation-duration:3.95s; --sway:1.45deg;">
+        <path class="tallo" d="M737,273.849205318738 L737,101.97612840374401" style="--len:171.87307691499396; stroke-width:5.3; animation-delay:0.54s; animation-duration:1.12s"/>
+        <g transform="rotate(-30 722,133.976128403744)"><ellipse class="hoja" cx="722" cy="133.976128403744" rx="14.4" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:1.16s"/></g>
+        <g transform="rotate(28 752,161.976128403744)"><ellipse class="hoja" cx="752" cy="161.976128403744" rx="14.4" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:1.23s"/></g>
+        <g class="cabeza" style="animation-delay:1.38s">
+          <ellipse cx="737" cy="85.6" rx="9.1" ry="16.4" fill="url(#petalo-grad2)" transform="rotate(0 737 101.97612840374401)"/>
+          <ellipse cx="737" cy="85.6" rx="9.1" ry="16.4" fill="url(#petalo-grad2)" transform="rotate(60 737 101.97612840374401)"/>
+          <ellipse cx="737" cy="85.6" rx="9.1" ry="16.4" fill="url(#petalo-grad2)" transform="rotate(120 737 101.97612840374401)"/>
+          <ellipse cx="737" cy="85.6" rx="9.1" ry="16.4" fill="url(#petalo-grad2)" transform="rotate(180 737 101.97612840374401)"/>
+          <ellipse cx="737" cy="85.6" rx="9.1" ry="16.4" fill="url(#petalo-grad2)" transform="rotate(240 737 101.97612840374401)"/>
+          <ellipse cx="737" cy="85.6" rx="9.1" ry="16.4" fill="url(#petalo-grad2)" transform="rotate(300 737 101.97612840374401)"/>
+          <circle cx="737" cy="101.97612840374401" r="8.2" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:825px 268.4297809617534px; opacity:1.0; animation-delay:3.06s; animation-duration:4.82s; --sway:1.67deg;">
+        <path class="tallo" d="M825,268.4297809617534 L825,86.97828663931841" style="--len:181.451494322435; stroke-width:5.9; animation-delay:0.67s; animation-duration:1.19s"/>
+        <g transform="rotate(-30 809,122.97828663931841)"><ellipse class="hoja" cx="809" cy="122.97828663931841" rx="15.8" ry="7.4" fill="var(--verde-tallo)" style="animation-delay:1.32s"/></g>
+        <g transform="rotate(28 841,151.9782866393184)"><ellipse class="hoja" cx="841" cy="151.9782866393184" rx="15.8" ry="7.4" fill="var(--verde-tallo)" style="animation-delay:1.41s"/></g>
+        <g class="cabeza" style="animation-delay:1.56s">
+          <g transform="translate(825.0 86.97828663931841) scale(1.500)">
+            <circle cx="0" cy="-13" r="16" fill="url(#rosa-base)"/>
+            <circle cx="-8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="8" cy="-10" r="8.5" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="-5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="5" cy="-20" r="8" fill="url(#rosa-petalo)" stroke="#D99A1C" stroke-width=".7"/>
+            <circle cx="0" cy="-13" r="8" fill="url(#rosa-base)" stroke="#D99A1C" stroke-width=".7"/>
+            <path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:848px 273.04230460505045px; opacity:1.0; animation-delay:2.37s; animation-duration:5.67s; --sway:1.44deg;">
+        <path class="tallo" d="M848,273.04230460505045 L848,90.1392642757067" style="--len:182.90304032934375; stroke-width:5.3; animation-delay:0.05s; animation-duration:1.12s"/>
+        <g transform="rotate(-30 833,122.1392642757067)"><ellipse class="hoja" cx="833" cy="122.1392642757067" rx="14.3" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:0.67s"/></g>
+        <g transform="rotate(28 863,150.1392642757067)"><ellipse class="hoja" cx="863" cy="150.1392642757067" rx="14.3" ry="6.8" fill="var(--verde-tallo)" style="animation-delay:0.74s"/></g>
+        <g class="cabeza" style="animation-delay:0.89s">
+          <ellipse cx="848" cy="73.8" rx="9.1" ry="16.3" fill="url(#petalo-grad2)" transform="rotate(0 848 90.1392642757067)"/>
+          <ellipse cx="848" cy="73.8" rx="9.1" ry="16.3" fill="url(#petalo-grad2)" transform="rotate(60 848 90.1392642757067)"/>
+          <ellipse cx="848" cy="73.8" rx="9.1" ry="16.3" fill="url(#petalo-grad2)" transform="rotate(120 848 90.1392642757067)"/>
+          <ellipse cx="848" cy="73.8" rx="9.1" ry="16.3" fill="url(#petalo-grad2)" transform="rotate(180 848 90.1392642757067)"/>
+          <ellipse cx="848" cy="73.8" rx="9.1" ry="16.3" fill="url(#petalo-grad2)" transform="rotate(240 848 90.1392642757067)"/>
+          <ellipse cx="848" cy="73.8" rx="9.1" ry="16.3" fill="url(#petalo-grad2)" transform="rotate(300 848 90.1392642757067)"/>
+          <circle cx="848" cy="90.1392642757067" r="8.2" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:906px 274.87225183476505px; opacity:1.0; animation-delay:2.63s; animation-duration:5.11s; --sway:1.68deg;">
+        <path class="tallo" d="M906,274.87225183476505 L906,134.72695205863255" style="--len:140.1452997761325; stroke-width:5.9; animation-delay:0.81s; animation-duration:1.19s"/>
+        <g transform="rotate(-30 890,170.72695205863255)"><ellipse class="hoja" cx="890" cy="170.72695205863255" rx="15.8" ry="7.4" fill="var(--verde-tallo)" style="animation-delay:1.46s"/></g>
+        <g transform="rotate(28 922,199.72695205863255)"><ellipse class="hoja" cx="922" cy="199.72695205863255" rx="15.8" ry="7.4" fill="var(--verde-tallo)" style="animation-delay:1.55s"/></g>
+        <g class="cabeza" style="animation-delay:1.7s">
+          <ellipse cx="906" cy="116.9" rx="9.9" ry="17.8" fill="url(#petalo-grad2)" transform="rotate(0 906 134.72695205863255)"/>
+          <ellipse cx="906" cy="116.9" rx="9.9" ry="17.8" fill="url(#petalo-grad2)" transform="rotate(60 906 134.72695205863255)"/>
+          <ellipse cx="906" cy="116.9" rx="9.9" ry="17.8" fill="url(#petalo-grad2)" transform="rotate(120 906 134.72695205863255)"/>
+          <ellipse cx="906" cy="116.9" rx="9.9" ry="17.8" fill="url(#petalo-grad2)" transform="rotate(180 906 134.72695205863255)"/>
+          <ellipse cx="906" cy="116.9" rx="9.9" ry="17.8" fill="url(#petalo-grad2)" transform="rotate(240 906 134.72695205863255)"/>
+          <ellipse cx="906" cy="116.9" rx="9.9" ry="17.8" fill="url(#petalo-grad2)" transform="rotate(300 906 134.72695205863255)"/>
+          <circle cx="906" cy="134.72695205863255" r="8.9" fill="url(#centro-grad)"/>
+        </g>
+      </g>
+
+      <g class="flor-grupo" style="transform-origin:980px 282.5515666566313px; opacity:1.0; animation-delay:3.57s; animation-duration:5.26s; --sway:1.28deg;">
+        <path class="tallo" d="M980,282.5515666566313 L980,140.65845999035716" style="--len:141.89310666627412; stroke-width:4.9; animation-delay:0.73s; animation-duration:1.07s"/>
+        <g transform="rotate(-30 966,170.65845999035716)"><ellipse class="hoja" cx="966" cy="170.65845999035716" rx="13.3" ry="6.4" fill="var(--verde-tallo)" style="animation-delay:1.32s"/></g>
+        <g transform="rotate(28 994,196.65845999035716)"><ellipse class="hoja" cx="994" cy="196.65845999035716" rx="13.3" ry="6.4" fill="var(--verde-tallo)" style="animation-delay:1.39s"/></g>
+        <g class="cabeza" style="animation-delay:1.53s">
+          <g transform="translate(980.0 140.65845999035716) scale(1.204)">
+            <path d="M-6,3 C-9,-9 -6,-25 0,-33 C6,-25 9,-9 6,3 Z" fill="url(#tul-lila-c)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C-9,5 -15,-6 -12,-26 C-6,-22 -2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,6 C9,5 15,-6 12,-26 C6,-22 2,-12 0,6 Z" fill="url(#tul-lila)" stroke="#D49A14" stroke-opacity=".55" stroke-width=".7"/>
+            <path d="M0,4 C-1,-8 0,-18 0,-24" stroke="#ffffff" stroke-opacity=".28" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+      </g>
+
+    </svg>
+  </div>
+
+  <div class="marco-tarjeta">
+  <span class="marco-lado izq">💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛</span>
+  <span class="marco-lado der">💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛🌷💛🌻💛</span>
+
+  <div class="tarjeta" style="margin:0; box-shadow:none;">
+    <p id="mensaje">
+      Hace ya un año que te conozco, y la verdad es que se siente como si hubiera pasado mucho más. En este tiempo me has demostrado lo increíble que eres, y quiero que sepas cuánto te aprecio.
+      <br>
+      <br>
+      Gracias por estar, por escucharme, por las risas y por los momentos buenos y también los difíciles. Contigo puedo ser tal como soy, y eso es algo que valoro muchísimo.
+      <br>
+      <br>
+      Vales mucho más de lo que imaginas, y me alegra de verdad tenerte como amiga. Ojalá este jardín te recuerde, aunque sea un ratito, lo especial que eres para mí. Gracias por este año, y por todos los que vengan. 💛
+    </p>
+    <div class="firma">CON MUCHO CARIÑO</div>
+  </div>
+</div>
+
+  <div class="lluvia-girasoles" id="lluviaGirasoles"></div>
+
+  <script>
+    (function(){
+      var contenedor = document.getElementById('lluviaGirasoles');
+      var cantidad = 36; // cuántas flores caen a la vez
+
+      for (var i = 0; i < cantidad; i++){
+        var g = document.createElement('span');
+        g.className = 'girasol-caida';
+        var t = i % 3;                                  // 0 girasol, 1 tulipán, 2 rosa amarilla
+        if (t === 0) g.textContent = '🌻';
+        else if (t === 1) g.textContent = '🌷';
+        else g.innerHTML = '<svg viewBox="-18 -32 36 36" xmlns="http://www.w3.org/2000/svg"><circle cx="0" cy="-13" r="16" fill="#F3BE2C"/><circle cx="-8" cy="-10" r="8.5" fill="#FFDD5E" stroke="#D99A1C" stroke-width=".8"/><circle cx="8" cy="-10" r="8.5" fill="#FFDD5E" stroke="#D99A1C" stroke-width=".8"/><circle cx="-5" cy="-20" r="8" fill="#FFE374" stroke="#D99A1C" stroke-width=".8"/><circle cx="5" cy="-20" r="8" fill="#FFE374" stroke="#D99A1C" stroke-width=".8"/><circle cx="0" cy="-13" r="8" fill="#F8CF48" stroke="#D99A1C" stroke-width=".8"/><path d="M0.40,-13.00 L0.49,-12.90 L0.56,-12.75 L0.58,-12.58 L0.55,-12.39 L0.46,-12.20 L0.32,-12.02 L0.12,-11.87 L-0.13,-11.77 L-0.41,-11.72 L-0.72,-11.75 L-1.04,-11.85 L-1.34,-12.03 L-1.61,-12.28 L-1.83,-12.61 L-1.97,-13.00 L-2.03,-13.43 L-1.99,-13.89 L-1.85,-14.34 L-1.60,-14.78 L-1.25,-15.16 L-0.80,-15.47 L-0.28,-15.69 L0.29,-15.79 L0.90,-15.77 L1.51,-15.61 L2.09,-15.32 L2.61,-14.90 L3.04,-14.36 L3.36,-13.71 L3.54,-13.00 L3.57,-12.24 L3.43,-11.47 L3.12,-10.73 L2.65,-10.06 L2.03,-9.48 L1.29,-9.03 L0.45,-8.75 L-0.46,-8.64 L-1.39,-8.74 L-2.29,-9.03 L-3.14,-9.51 L-3.88,-10.18 L-4.48,-11.01 L-4.90,-11.96 L-5.11,-13.00 L-5.10,-14.08 L-4.86,-15.16 L-4.39,-16.19 L-3.70,-17.11 L-2.82,-17.88 L-1.77,-18.46 L-0.61,-18.81 L0.62,-18.92 L1.87,-18.76 L3.08,-18.33 L4.19,-17.66 L5.15,-16.74 L5.91,-15.63 L6.43,-14.37 L6.68,-13.00" fill="none" stroke="#C2810F" stroke-width="1.1" stroke-linecap="round"/></svg>';
+
+        var izquierda = Math.random() * 100;           // posición horizontal (%)
+        var tam = 16 + Math.random() * 22;              // tamaño del emoji
+        var duracionCaida = 7 + Math.random() * 8;       // segundos en cruzar la pantalla
+        var duracionVaiven = 2 + Math.random() * 2.5;    // segundos del balanceo lateral
+        var retraso = Math.random() * duracionCaida;     // para que no caigan todos a la vez
+        var opacidad = 0.55 + Math.random() * 0.4;
+
+        g.style.left = izquierda + '%';
+        g.style.setProperty('--tam', tam + 'px');
+        g.style.setProperty('--dur', duracionCaida + 's');
+        g.style.setProperty('--dur-sway', duracionVaiven + 's');
+        g.style.setProperty('--retraso', '-' + retraso + 's');
+        g.style.setProperty('--op', opacidad);
+
+        contenedor.appendChild(g);
+      }
+    })();
+  </script>
+
+</body>
+</html>
